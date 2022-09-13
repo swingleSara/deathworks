@@ -1,7 +1,7 @@
 {
-  "name": "binary-upload-boom",
+  "name": "deathworks",
   "version": "1.0.0",
-  "description": "100Devs Social Network",
+  "description": "Funeral Industry Social Network",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
