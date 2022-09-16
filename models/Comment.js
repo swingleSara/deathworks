@@ -9,9 +9,9 @@ const CommentSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  post: {
+  listing: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Post",
+    ref: "Listing",
   },
   createdAt: {
     type: Date,

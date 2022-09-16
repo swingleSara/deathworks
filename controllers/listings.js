@@ -1,32 +1,32 @@
 const cloudinary = require("../middleware/cloudinary");
-const Post = require("../models/Post");
+const Listing = require("../models/Listing");
 const Comment = require("../models/Comment");
 
 module.exports = {
   getProfile: async (req, res) => {
     try {
-      const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, user: req.user });
+      const listings = await Listing.find({ user: req.user.id });
+      res.render("profile.ejs", { listings: listings, user: req.user });
     } catch (err) {
       console.log(err);
     }
   },
   getFeed: async (req, res) => {
     try {
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { posts: posts });
+      const listings = await Listing.find().sort({ createdAt: "desc" }).lean();
+      res.render("feed.ejs", { listings: listings });
     } catch (err) {
       console.log(err);
     }
   },
-  getPost: async (req, res) => {
+  getListing: async (req, res) => {
     try {
-      const post = await Post.findById(req.params.id);
-      const comments = await Comment.find({ post: req.params.id })
+      const listing = await Listing.findById(req.params.id);
+      const comments = await Comment.find({ listing: req.params.id })
         .sort({ createdAt: "desc" })
         .lean();
       res.render("post.ejs", {
-        post: post,
+        listing: listing,
         user: req.user,
         comments: comments,
       });
@@ -34,12 +34,12 @@ module.exports = {
       console.log(err);
     }
   },
-  createPost: async (req, res) => {
+  createListing: async (req, res) => {
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
 
-      await Post.create({
+      await Listing.create({
         title: req.body.title,
         image: result.secure_url,
         cloudinaryId: result.public_id,
@@ -47,35 +47,35 @@ module.exports = {
         likes: 0,
         user: req.user.id,
       });
-      console.log("Post has been added!");
+      console.log("Listing has been added!");
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
     }
   },
-  likePost: async (req, res) => {
+  likeListing: async (req, res) => {
     try {
-      await Post.findOneAndUpdate(
+      await Listing.findOneAndUpdate(
         { _id: req.params.id },
         {
           $inc: { likes: 1 },
         }
       );
       console.log("Likes +1");
-      res.redirect(`/post/${req.params.id}`);
+      res.redirect(`/listing/${req.params.id}`);
     } catch (err) {
       console.log(err);
     }
   },
-  deletePost: async (req, res) => {
+  deleteListing: async (req, res) => {
     try {
       // Find post by id
-      let post = await Post.findById({ _id: req.params.id });
+      let listing = await Listing.findById({ _id: req.params.id });
       // Delete image from cloudinary
-      await cloudinary.uploader.destroy(post.cloudinaryId);
-      // Delete post from db
-      await Post.remove({ _id: req.params.id });
-      console.log("Deleted Post");
+      await cloudinary.uploader.destroy(listing.cloudinaryId);
+      // Delete listing from db
+      await Listing.remove({ _id: req.params.id });
+      console.log("Deleted listing");
       res.redirect("/profile");
     } catch (err) {
       res.redirect("/profile");
