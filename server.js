@@ -15,7 +15,7 @@ const commentRoutes = require("./routes/comments");
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
 
-//Passport config
+// Passport config
 require("./config/passport")(passport);
 
 //Connect To Database
