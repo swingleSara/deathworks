@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row justify-content-center mt-5">
     <div class="col-6">
-      <h2><%= post.title %></h2>
+      <h2><%= listing.title %></h2>
       <img class="img-fluid" src="<%= listing.image%>" />
       <div class="row justify-content-between">
         <form
@@ -28,19 +28,19 @@
       <p><%= listing.caption %></p>
     </div>
     <div class="mt-5">
-            <h2>Add a comment</h2>
-            <form action="/comment/createComment/<%=listing.id%>" method="POST">
+            <h2>Ask a question</h2>
+            <form action="/question/createQuestion/<%=listing.id%>" method="POST">
               <div class="mb-3">
-                  <label for="comment" class="form-label">Comment</label>
-                  <input type="text" class="form-control" id="comment" name="comment">
+                  <label for="question" class="form-label">Question</label>
+                  <input type="text" class="form-control" id="question" name="question">
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Ask</button>
             </form>
           </div>
     <ul>
-      <% for(var i=0; i<comments.length; i++) {%>
+      <% for(var i=0; i<questions.length; i++) {%>
         <li class="col-6 justify-content-between mt-5">
-          <%= comments[i].comment%>
+          <%= questions[i].question%>
         </li>
       <% } %>
     </ul>
