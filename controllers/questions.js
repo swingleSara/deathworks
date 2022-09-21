@@ -14,4 +14,18 @@ module.exports = {
       console.log(err);
     }
   },
+  addAnswer: async (req, res) => {
+    try {
+      await Question.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          $set: { answer: req.body.answer },
+        }
+      );
+      console.log("Question answered!");
+      res.redirect(`/listing/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };
