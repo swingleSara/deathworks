@@ -2,21 +2,23 @@
 <div class="container">
   <div class="row justify-content-center mt-5">
     <div class="col-6">
-      <h2><%= listing.title %></h2>
-      <img class="img-fluid" src="<%= listing.image%>" />
+      <h2><%=listing.title%></h2>
+      <img class="img-fluid" src="<%=listing.image%>" />
       <div class="row justify-content-between">
         <form
           class="col-1"
-          action="/listing/likeListing/<%= listing.id %>?_method=PUT"
-          method="POST">
+          action="/listing/likeListing/<%=listing.id%>?_method=PUT"
+          method="POST"
+        >
           <button class="btn btn-primary fa fa-heart" type="submit"></button>
         </form>
-        <h3 class="col-3">Likes: <%= listing.likes %></h3>
+        <h3 class="col-3">Likes: <%=listing.likes%></h3>
         <%if(listing.user == user.id){ %>
         <form
-          action="/listing/deleteListing/<%= listing.id %>?_method=DELETE"
+          action="/listing/deleteListing/<%=listing.id%>?_method=DELETE"
           method="POST"
-          class="col-3">
+          class="col-3"
+        >
           <button class="btn btn-primary fa fa-trash" type="submit"></button>
         </form>
         <%}%>
@@ -27,27 +29,34 @@
     </div>
     <div class="mt-5">
       <%if(listing.user != user.id){ %>
-        <h2>Ask a question</h2>
-        <form action="/questions/createQuestion/<%=listing.id%>" method="POST">
-          <div class="mb-3">
-            <label for="question" class="form-label">Question</label>
-            <input type="text" class="form-control" id="question" name="question">
-          </div>
-          <button type="submit" class="btn btn-primary">Ask</button>
-        </form>
+      <h2>Ask a question</h2>
+      <form action="/questions/createQuestion/<%=listing.id%>" method="POST">
+        <div class="mb-3">
+          <label for="question" class="form-label">Question</label>
+          <input
+            type="text"
+            class="form-control"
+            id="question"
+            name="question"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Ask</button>
+      </form>
       <%}%>
     </div>
     <ul>
       <% for(let i=0; i<questions.length; i++) {%>
         <li class="col-6 justify-content-between mt-5">
-          <%= questions[i].question%>
+          <%=questions[i].question%>
           <%if (questions[i].answer != undefined){ %>
-            <%= questions[i].answer%>
+            <ul>
+              <li><%=questions[i].answer%></li>
+            </ul>
           <%} else {%>
             <div class="mt-5">
               <%if(listing.user == user.id){ %>
                 <h2>Answer the question</h2>
-                <form action="/questions/addAnswer/<%=listing.id%>?_method=PUT" method="POST">
+                <form action="/questions/addAnswer/<%=questions[i]._id%>?_method=PUT" method="POST">
                   <div class="mb-3">
                     <label for="answer" class="form-label">Answer</label>
                     <input type="text" class="form-control" id="answer" name="answer">
