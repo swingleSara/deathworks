@@ -6,6 +6,6 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 //Comment Routes - simplified for now
 router.post("/createQuestion/:id", questionsController.createQuestion);
 
-router.put("/addAnswer/:id", questionsController.addAnswer);
+router.put("/addAnswer/:id/:listingId", questionsController.addAnswer);
 
 module.exports = router;
