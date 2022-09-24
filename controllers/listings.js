@@ -43,7 +43,9 @@ module.exports = {
         title: req.body.title,
         image: result.secure_url,
         cloudinaryId: result.public_id,
-        caption: req.body.caption,
+        location: req.body.location,
+        company: req.body.company,
+        site: req.body.site,
         likes: 0,
         user: req.user.id,
       });

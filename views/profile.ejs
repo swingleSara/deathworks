@@ -11,12 +11,20 @@
             <h2>Add a listing</h2>
             <form action="/listing/createListing" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
+                  <label for="title" class="form-label">Position Title</label>
                   <input type="text" class="form-control" id="title" name="title">
               </div>
               <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
+                <label for="location" class="form-label">Location</label>
+                <textarea class="form-control" id="location" name="location"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="company" class="form-label">Hiring Company</label>
+                <textarea class="form-control" id="company" name="company"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="site" class="form-label">Company Site</label>
+                <textarea class="form-control" id="site" name="site"></textarea>
               </div>
               <div class="mb-3">
                 <label for="imgUpload" class="form-label">Image</label>
@@ -28,7 +36,7 @@
       </div>
       <div class="col-6">
         <ul class="row list-unstyled">
-        <% for(var i=0; i<listings.length; i++) { %>
+        <% for(let i=0; i<listings.length; i++) { %>
           <li class="col-6 justify-content-between mt-5">
             <a href="/listing/<%= listings[i]._id%>">
               <img class="img-fluid" src="<%= listings[i].image%>">

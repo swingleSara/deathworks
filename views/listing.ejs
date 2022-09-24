@@ -25,7 +25,9 @@
       </div>
     </div>
     <div class="col-3 mt-5">
-      <p><%= listing.caption %></p>
+      <h4><%=listing.location%></h4>
+      <h3><%=listing.company%></h3>
+      <h5><%=listing.site%></h5>
     </div>
     <div class="mt-5">
       <%if(listing.user != user.id){ %>

@@ -13,9 +13,17 @@ const ListingSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  caption: {
+  location: {
     type: String,
     required: true,
+  },
+  company: {
+    type: String,
+    required: true,
+  },
+  site: {
+    type: String,
+    required: false,
   },
   likes: {
     type: Number,
