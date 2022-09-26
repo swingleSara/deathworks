@@ -21,12 +21,16 @@ const ListingSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  contact: {
+    type: String,
+    required: true,
+  },
   site: {
     type: String,
     required: false,
   },
-  likes: {
-    type: Number,
+  description: {
+    type: String,
     required: true,
   },
   user: {
