@@ -5,7 +5,6 @@ module.exports = {
     try {
       await Question.create({
         question: req.body.question,
-        likes: 0,
         listing: req.params.id,
       });
       console.log("Question has been asked!");

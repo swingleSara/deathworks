@@ -48,25 +48,11 @@ module.exports = {
         number: req.body.number,
         address: req.body.address,
         site: req.body.site,
-        position: req.body.position,
+        description: req.body.description,
         user: req.user.id,
       });
       console.log("Listing has been added!");
       res.redirect("/profile");
-    } catch (err) {
-      console.log(err);
-    }
-  },
-  likeListing: async (req, res) => {
-    try {
-      await Listing.findOneAndUpdate(
-        { _id: req.params.id },
-        {
-          $inc: { likes: 1 },
-        }
-      );
-      console.log("Likes +1");
-      res.redirect(`/listing/${req.params.id}`);
     } catch (err) {
       console.log(err);
     }

@@ -13,8 +13,6 @@ router.post(
   listingsController.createListing
 );
 
-router.put("/likeListing/:id", listingsController.likeListing);
-
 router.delete("/deleteListing/:id", listingsController.deleteListing);
 
 module.exports = router;

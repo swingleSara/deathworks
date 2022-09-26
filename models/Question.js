@@ -9,10 +9,6 @@ const QuestionSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  likes: {
-    type: Number,
-    required: true,
-  },
   listing: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Listing",
