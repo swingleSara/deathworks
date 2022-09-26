@@ -45,8 +45,10 @@ module.exports = {
         cloudinaryId: result.public_id,
         location: req.body.location,
         company: req.body.company,
+        number: req.body.number,
+        address: req.body.address,
         site: req.body.site,
-        likes: 0,
+        position: req.body.position,
         user: req.user.id,
       });
       console.log("Listing has been added!");
