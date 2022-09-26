@@ -21,8 +21,12 @@ const ListingSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  contact: {
-    type: String,
+  number: {
+    type: Array,
+    required: true,
+  },
+  address: {
+    type: Array,
     required: true,
   },
   site: {
@@ -30,7 +34,7 @@ const ListingSchema = new mongoose.Schema({
     required: false,
   },
   description: {
-    type: String,
+    type: Array,
     required: true,
   },
   user: {
