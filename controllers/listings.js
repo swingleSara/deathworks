@@ -1,4 +1,3 @@
-const cloudinary = require("../middleware/cloudinary");
 const Listing = require("../models/Listing");
 const Question = require("../models/Question");
 
@@ -36,13 +35,9 @@ module.exports = {
   },
   createListing: async (req, res) => {
     try {
-      // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
-
       await Listing.create({
         title: req.body.title,
         image: result.secure_url,
-        cloudinaryId: result.public_id,
         location: req.body.location,
         company: req.body.company,
         number: req.body.number,
@@ -61,8 +56,6 @@ module.exports = {
     try {
       // Find listing by id
       let listing = await Listing.findById({ _id: req.params.id });
-      // Delete image from cloudinary
-      await cloudinary.uploader.destroy(listing.cloudinaryId);
       // Delete listing from db
       await Listing.remove({ _id: req.params.id });
       console.log("Deleted listing");
