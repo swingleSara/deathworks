@@ -5,6 +5,14 @@ const ListingSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+    require: true,
+  },
+  cloudinaryId: {
+    type: String,
+    require: true,
+  },
   location: {
     type: String,
     required: true,
