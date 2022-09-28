@@ -37,20 +37,35 @@ module.exports = {
   createListing: async (req, res) => {
     try {
       // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
-
-      await Listing.create({
-        title: req.body.title,
-        image: result.secure_url,
-        cloudinaryId: result.public_id,
-        location: req.body.location,
-        company: req.body.company,
-        number: req.body.number,
-        address: req.body.address,
-        site: req.body.site,
-        description: req.body.description,
-        user: req.user.id,
-      });
+      let result;
+      if (req.file) {
+        result = await cloudinary.uploader.upload(req.file.path);
+      }
+      if (!result) {
+        await Listing.create({
+          title: req.body.title,
+          location: req.body.location,
+          company: req.body.company,
+          number: req.body.number,
+          address: req.body.address,
+          site: req.body.site,
+          description: req.body.description,
+          user: req.user.id,
+        });
+      } else {
+        await Listing.create({
+          title: req.body.title,
+          image: result.secure_url,
+          cloudinaryId: result.public_id,
+          location: req.body.location,
+          company: req.body.company,
+          number: req.body.number,
+          address: req.body.address,
+          site: req.body.site,
+          description: req.body.description,
+          user: req.user.id,
+        });
+      }
       console.log("Listing has been added!");
       res.redirect("/profile");
     } catch (err) {
@@ -62,7 +77,9 @@ module.exports = {
       // Find listing by id
       let listing = await Listing.findById({ _id: req.params.id });
       // Delete image from cloudinary
-      await cloudinary.uploader.destroy(listing.cloudinaryId);
+      if (!listing.cloudinaryId) {
+        await cloudinary.uploader.destroy(listing.cloudinaryId);
+      }
       // Delete listing from db
       await Listing.remove({ _id: req.params.id });
       console.log("Deleted listing");
