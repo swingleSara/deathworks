@@ -3,7 +3,16 @@
   <div class="row justify-content-center mt-5">
     <div class="col-6">
       <h2><%=listing.title%></h2>
-      <img class="img-fluid" src="<%=listing.image%>" />
+        <% if (!listings[i].image) { %>
+          <div class="img-fluid"></div>
+            <h3><%=listings[i].title%></h3>
+            <h4><%=listings[i].location%></h4>
+            <h4><%=listings[i].company%></h4>
+          </div>
+        <% } else { %>
+          <img class="img-fluid" src="<%= listings[i].image%>">
+          <%=listings[i].title%>
+        <% } %>
       <div class="row justify-content-between">
         <form
           action="/listing/deleteListing/<%=listing.id%>?_method=DELETE"
