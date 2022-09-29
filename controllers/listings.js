@@ -3,14 +3,6 @@ const Listing = require("../models/Listing");
 const Question = require("../models/Question");
 
 module.exports = {
-  getProfile: async (req, res) => {
-    try {
-      const listings = await Listing.find({ user: req.user.id });
-      res.render("profile.ejs", { listings: listings, user: req.user });
-    } catch (err) {
-      console.log(err);
-    }
-  },
   getFeed: async (req, res) => {
     try {
       const listings = await Listing.find().sort({ createdAt: "desc" }).lean();
@@ -33,6 +25,9 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
+  },
+  getCreateListing: (req, res) => {
+    res.render("createListing.ejs");
   },
   createListing: async (req, res) => {
     try {
