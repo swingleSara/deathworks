@@ -5,17 +5,13 @@ const SeekerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  profilePic: {
+  image: {
     type: String,
     require: false,
   },
   cloudinaryId: {
     type: String,
     require: false,
-  },
-  email: {
-    type: String,
-    require: true,
   },
   location: {
     type: Array,

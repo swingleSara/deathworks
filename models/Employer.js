@@ -5,7 +5,7 @@ const EmployerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  profilePic: {
+  image: {
     type: String,
     require: false,
   },
@@ -14,10 +14,6 @@ const EmployerSchema = new mongoose.Schema({
     require: false,
   },
   companyName: {
-    type: String,
-    require: true,
-  },
-  email: {
     type: String,
     require: true,
   },
