@@ -3,7 +3,6 @@ const router = express.Router();
 const listingsController = require("../controllers/listings");
 const Listing = require("../models/Listing");
 
-//Main Routes - simplified for now
 router.get("/", listingsController.getFeed);
 
 module.exports = {

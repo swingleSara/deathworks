@@ -4,15 +4,12 @@ const upload = require("../middleware/multer");
 const listingsController = require("../controllers/listings");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-//Listing Routes - simplified for now
 router.get("/:id", ensureAuth, listingsController.getListing);
-
 router.post(
   "/createListing",
   upload.single("file"),
   listingsController.createListing
 );
-
 router.delete("/deleteListing/:id", listingsController.deleteListing);
 
 module.exports = router;

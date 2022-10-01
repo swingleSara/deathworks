@@ -3,14 +3,20 @@
   <div class="row mt-5">
       <div class="col-6">
           <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
+              <p>User Name: <%= user.userName %></p>
+              <p>Email: <%= user.email %></p>
+              <% if (user.profilePic) { %>
+                <p><%= user.profilePic %></p>
+              <% } %>
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
           </div>
-          <div class="row justify-content-center mt-5">
+          <% if (user.status === "employer") { %>
+            <div class="row justify-content-center mt-5">
               <a class="btn btn-primary" href="/createListing">Create Listing</a>
-          </div>
+            </div>
+          <% } %>
       </div>
+  </div>
       <div class="col-6">
         <ul class="row list-unstyled">
         <% for(let i=0; i<listings.length; i++) { %>

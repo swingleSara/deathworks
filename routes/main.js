@@ -6,7 +6,6 @@ const listingsController = require("../controllers/listings");
 const profileController = require("../controllers/profile");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-//Main Routes - simplified for now
 router.get("/", homeController.getIndex);
 router.get("/profile", ensureAuth, profileController.getProfile);
 router.get("/feed", listingsController.getFeed);
