@@ -29,10 +29,6 @@ const EmployerSchema = new mongoose.Schema({
     type: String,
     require: false,
   },
-  quals: {
-    type: String,
-    require: false,
-  },
   bioBlurb: {
     type: String,
     require: false,
