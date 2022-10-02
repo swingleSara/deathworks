@@ -3,15 +3,24 @@
   <div class="row mt-5">
     <div class="col-6">
       <div class="mt-5">
-        <h2>Add a listing</h2>
+        <h2>Create Employer Profile</h2>
         <form
-          action="/listing/createListing"
+          action="/employer/createEmployer"
           enctype="multipart/form-data"
           method="POST"
         >
           <div class="mb-3">
-            <label for="title" class="form-label">Position Title</label>
-            <input type="text" class="form-control" id="title" name="title" />
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" />
+          </div>
+          <div class="mb-3">
+            <label for="companyName" class="form-label">Company Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="companyName"
+              name="companyName"
+            />
           </div>
           <div class="mb-3">
             <label for="location" class="form-label">Location</label>
@@ -23,38 +32,15 @@
             />
           </div>
           <div class="mb-3">
-            <label for="company" class="form-label">Hiring Company</label>
-            <input
-              type="text"
-              class="form-control"
-              id="company"
-              name="company"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="number" class="form-label">Contact Phone</label>
+            <label for="number" class="form-label">Number</label>
             <input type="text" class="form-control" id="number" name="number" />
           </div>
           <div class="mb-3">
-            <label for="address" class="form-label">Contact Address</label>
+            <label for="bioBlurb" class="form-label">About Me</label>
             <textarea
               class="form-control"
-              id="address"
-              name="address"
-            ></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="site" class="form-label">Company Site</label>
-            <input type="text" class="form-control" id="site" name="site" />
-          </div>
-          <div class="mb-3">
-            <label for="description" class="form-label"
-              >Position Description</label
-            >
-            <textarea
-              class="form-control"
-              id="description"
-              name="description"
+              id="bioBlurb"
+              name="bioBlurb"
             ></textarea>
           </div>
           <div class="mb-3">
