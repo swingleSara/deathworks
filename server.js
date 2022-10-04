@@ -14,6 +14,7 @@ const questionsRoutes = require("./routes/questions");
 const seekerRoutes = require("./routes/seeker");
 const employerRoutes = require("./routes/employer");
 const profileRoutes = require("./routes/publicProfile");
+const PORT = 3000;
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -66,6 +67,6 @@ app.use("/employer", employerRoutes);
 app.use("/publicProfile", profileRoutes);
 
 //Server Running
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log("Server is running, you better catch it!");
 });
