@@ -15,6 +15,8 @@ router.get("/feed", listingsController.getFeed);
 router.get("/createListing", listingsController.getCreateListing);
 router.get("/createEmployer", employerController.getCreateEmployer);
 router.get("/createSeeker", seekerController.getCreateSeeker);
+router.get("/editEmployer", employerController.getEditEmployer);
+router.get("/editSeeker", seekerController.getEditSeeker);
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
