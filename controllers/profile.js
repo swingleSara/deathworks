@@ -1,5 +1,5 @@
-const Employer = require("../models/Employer");
 const Listing = require("../models/Listing");
+const Employer = require("../models/Employer");
 const Seeker = require("../models/Seeker");
 
 module.exports = {
