@@ -4,7 +4,7 @@ const upload = require("../middleware/multer");
 const seekerController = require("../controllers/seeker");
 
 router.post(
-  "/createseeker",
+  "/createSeeker",
   upload.single("file"),
   seekerController.createSeeker
 );
