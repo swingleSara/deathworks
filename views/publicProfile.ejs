@@ -2,23 +2,23 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-6">
-      <% if (user.status === "employer") { %> <% if (employer.image) { %>
-      <p><%= employer.image %></p>
-      <% } %>
-      <p>Name: <%= employer.name %></p>
-      <p>Company: <%= employer.companyName %></p>
-      <p>Location: <%= employer.location %></p>
-      <p>Number: <%= employer.number %></p>
-      <p>About The Company: <%= employer.bioBlurb %></p>
-      <% } %> <% if (user.status === "seeker") { %> <% if (seeker.image) { %>
-      <p><%= seeker.image %></p>
-      <% } %>
-      <p>Name: <%= seeker.name %></p>
-      <p>Location: <%= seeker.location %></p>
-      <p>Qualificiations: <%= seeker.quals %></p>
-      <p>About Me: <%= seeker.bioBlurb %></p>
-      <% } %>
+      <div>
+        <% if (status === "employer") { %>
+        <p>Name: <%= employer.name %></p>
+        <p>Company: <%= employer.companyName %></p>
+        <p>Location: <%= employer.location %></p>
+        <p>Number: <%= employer.number %></p>
+        <p>About The Company: <%= employer.bioBlurb %></p>
+        <% } %> <% if (status === "seeker") { %> <% if (seeker.image) { %>
+        <p><%= seeker.image %></p>
+        <% } %>
+        <p>Name: <%= seeker.name %></p>
+        <p>Location: <%= seeker.location %></p>
+        <p>Qualificiations: <%= seeker.quals %></p>
+        <p>About Me: <%= seeker.bioBlurb %></p>
+        <% } %>
+      </div>
     </div>
   </div>
+  <%- include('partials/footer') -%>
 </div>
-<%- include('partials/footer') -%>

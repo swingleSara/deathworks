@@ -8,24 +8,28 @@
               <% if (user.profilePic) { %>
                 <p><%= user.profilePic %></p>
               <% } %>
+              <a href="/publicProfile/<%=user._id%>" class="col-3 btn btn-primary">View Public Profile</a>
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
           </div>
-          <% if (user.status === "seeker" && !seeker) { %>
+          <% if (status === "seeker" && !seeker.length) { %>
+            <%console.log(seeker)%>
             <div class="row justify-content-center mt-5">
               <a class="btn btn-primary" href="/createSeeker">Create Seeker Profile</a>
             </div>
-            <!-- <div class="row justify-content-center mt-5">
-              <a class="btn btn-primary" href="/editSeeker">Edit Seeker Profile</a>
-            </div> -->
+          <% } else if (status === "seeker") { %>
+            <div class="row justify-content-center mt-5">
+              Edit Seeker Profile
+            </div>
           <% } %>
-          <% if (user.status === "employer" && !employer) { %>
+          <% if (status === "employer" && !employer.length) { %>
+            <%console.log(employer)%>
             <div class="row justify-content-center mt-5">
               <a class="btn btn-primary" href="/createEmployer">Create Employer Profile</a>
             </div>
-            <!-- <div class="row justify-content-center mt-5">
-              <a class="btn btn-primary" href="/editEmployer">Edit Employer Profile</a>
-            </div> -->
-            <% } else if (user.status === "employer") { %>
+            <% } else if (status === "employer") { %>
+            <div class="row justify-content-center mt-5">
+              Edit Employer Profile
+            </div>
             <div class="row justify-content-center mt-5">
               <a class="btn btn-primary" href="/createListing">Create Listing</a>
             </div>

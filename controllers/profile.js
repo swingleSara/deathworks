@@ -1,6 +1,7 @@
 const Listing = require("../models/Listing");
 const Employer = require("../models/Employer");
 const Seeker = require("../models/Seeker");
+const User = require("../models/User");
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -11,6 +12,7 @@ module.exports = {
       res.render("profile.ejs", {
         listings: listings,
         user: req.user,
+        status: req.user.status,
         employer: employer,
         seeker: seeker,
       });
@@ -20,10 +22,12 @@ module.exports = {
   },
   getPublicProfile: async (req, res) => {
     try {
-      const employer = await Employer.find({ user: req.user.id });
-      const seeker = await Seeker.find({ user: req.user.id });
+      const user = await User.findById(req.params.id);
+      const employer = await Employer.findOne({ user: req.user.id });
+      const seeker = await Seeker.findOne({ user: req.user.id });
       res.render("publicProfile.ejs", {
-        user: req.user,
+        user: user,
+        status: user.status,
         employer: employer,
         seeker: seeker,
       });

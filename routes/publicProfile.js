@@ -4,7 +4,7 @@ const upload = require("../middleware/multer");
 const profileController = require("../controllers/profile");
 
 router.get(
-  "/publicProfile",
+  "/publicProfile/:id",
   upload.single("file"),
   profileController.getPublicProfile
 );
