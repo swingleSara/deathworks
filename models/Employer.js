@@ -29,6 +29,10 @@ const EmployerSchema = new mongoose.Schema({
     type: String,
     require: false,
   },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 module.exports = mongoose.model("Employer", EmployerSchema);

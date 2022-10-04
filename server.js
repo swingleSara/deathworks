@@ -13,6 +13,7 @@ const listingRoutes = require("./routes/listings");
 const questionsRoutes = require("./routes/questions");
 const seekerRoutes = require("./routes/seeker");
 const employerRoutes = require("./routes/employer");
+const profileRoutes = require("./routes/publicProfile");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -62,6 +63,7 @@ app.use("/listing", listingRoutes);
 app.use("/questions", questionsRoutes);
 app.use("/seeker", seekerRoutes);
 app.use("/employer", employerRoutes);
+app.use("/publicProfile", profileRoutes);
 
 //Server Running
 app.listen(process.env.PORT, () => {
