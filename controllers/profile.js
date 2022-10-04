@@ -6,7 +6,14 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const listings = await Listing.find({ user: req.user.id });
-      res.render("profile.ejs", { listings: listings, user: req.user });
+      const employer = await Employer.find({ user: req.user.id });
+      const seeker = await Seeker.find({ user: req.user.id });
+      res.render("profile.ejs", {
+        listings: listings,
+        user: req.user,
+        employer: employer,
+        seeker: seeker,
+      });
     } catch (err) {
       console.log(err);
     }

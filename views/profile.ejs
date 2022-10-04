@@ -10,7 +10,7 @@
               <% } %>
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
           </div>
-          <% if (user.status === "seeker") { %>
+          <% if (user.status === "seeker" && !seeker) { %>
             <div class="row justify-content-center mt-5">
               <a class="btn btn-primary" href="/createSeeker">Create Seeker Profile</a>
             </div>
@@ -18,13 +18,14 @@
               <a class="btn btn-primary" href="/editSeeker">Edit Seeker Profile</a>
             </div> -->
           <% } %>
-          <% if (user.status === "employer") { %>
+          <% if (user.status === "employer" && !employer) { %>
             <div class="row justify-content-center mt-5">
               <a class="btn btn-primary" href="/createEmployer">Create Employer Profile</a>
             </div>
             <!-- <div class="row justify-content-center mt-5">
               <a class="btn btn-primary" href="/editEmployer">Edit Employer Profile</a>
             </div> -->
+            <% } else if (user.status === "employer") { %>
             <div class="row justify-content-center mt-5">
               <a class="btn btn-primary" href="/createListing">Create Listing</a>
             </div>
