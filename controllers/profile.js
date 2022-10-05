@@ -22,12 +22,9 @@ module.exports = {
   },
   getPublicProfile: async (req, res) => {
     try {
-      const user = await User.findById(req.params.id);
-      const employer = await Employer.findOne({ user: req.user.id });
-      const seeker = await Seeker.findOne({ user: req.user.id });
+      const employer = await Employer.findOne({ user: req.params.id });
+      const seeker = await Seeker.findOne({ user: req.params.id });
       res.render("publicProfile.ejs", {
-        user: user,
-        status: user.status,
         employer: employer,
         seeker: seeker,
       });

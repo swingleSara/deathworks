@@ -3,7 +3,7 @@
   <div class="row justify-content-center mt-5">
     <div class="col-6">
       <h2><%=listing.title%></h2>
-      <div>Posted by: <a href="/profile/getPublicProfile/<%=listing.user%>"><%=employer.name%></a></div>
+      <div>Posted by: <a href="/publicProfile/<%=listing.user%>"><%=employer.name%></a></div>
         <% if (listing.image) { %>
           <img class="img-fluid" src="<%= listing.image%>">
         <% } %>
