@@ -14,6 +14,7 @@ const questionsRoutes = require("./routes/questions");
 const seekerRoutes = require("./routes/seeker");
 const employerRoutes = require("./routes/employer");
 const profileRoutes = require("./routes/publicProfile");
+const publicListingRoutes = require("./routes/publicListing");
 const PORT = 3000;
 
 //Use .env file in config folder
@@ -65,6 +66,7 @@ app.use("/questions", questionsRoutes);
 app.use("/seeker", seekerRoutes);
 app.use("/employer", employerRoutes);
 app.use("/profile", profileRoutes);
+app.use("/publicListing", publicListingRoutes);
 
 //Server Running
 app.listen(process.env.PORT || PORT, () => {

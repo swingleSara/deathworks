@@ -5,6 +5,7 @@ const listingsController = require("../controllers/listings");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.get("/:id", ensureAuth, listingsController.getListing);
+router.get("/publicListing/:id", listingsController.getPublicListing);
 router.post(
   "/createListing",
   upload.single("file"),
