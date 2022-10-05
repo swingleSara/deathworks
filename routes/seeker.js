@@ -8,5 +8,10 @@ router.post(
   upload.single("file"),
   seekerController.createSeeker
 );
+router.put(
+  "/editSeeker/:id",
+  upload.single("file"),
+  seekerController.editSeeker
+);
 
 module.exports = router;

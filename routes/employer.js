@@ -8,5 +8,10 @@ router.post(
   upload.single("file"),
   employerController.createEmployer
 );
+router.put(
+  "/editEmployer/:id",
+  upload.single("file"),
+  employerController.editEmployer
+);
 
 module.exports = router;
