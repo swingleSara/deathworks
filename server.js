@@ -64,7 +64,7 @@ app.use("/listing", listingRoutes);
 app.use("/questions", questionsRoutes);
 app.use("/seeker", seekerRoutes);
 app.use("/employer", employerRoutes);
-app.use("/publicProfile", profileRoutes);
+app.use("/profile", profileRoutes);
 
 //Server Running
 app.listen(process.env.PORT || PORT, () => {

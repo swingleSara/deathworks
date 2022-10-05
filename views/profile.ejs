@@ -17,9 +17,9 @@
               <a class="btn btn-primary" href="/createSeeker">Create Seeker Profile</a>
             </div>
           <% } else if (status === "seeker") { %>
-            <div class="row justify-content-center mt-5">
+            <!-- <div class="row justify-content-center mt-5">
               Edit Seeker Profile
-            </div>
+            </div> -->
           <% } %>
           <% if (status === "employer" && !employer.length) { %>
             <%console.log(employer)%>
@@ -27,9 +27,9 @@
               <a class="btn btn-primary" href="/createEmployer">Create Employer Profile</a>
             </div>
             <% } else if (status === "employer") { %>
-            <div class="row justify-content-center mt-5">
+            <!-- <div class="row justify-content-center mt-5">
               Edit Employer Profile
-            </div>
+            </div> -->
             <div class="row justify-content-center mt-5">
               <a class="btn btn-primary" href="/createListing">Create Listing</a>
             </div>

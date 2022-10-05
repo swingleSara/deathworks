@@ -1,6 +1,7 @@
 const cloudinary = require("../middleware/cloudinary");
 const Listing = require("../models/Listing");
 const Question = require("../models/Question");
+const Employer = require("../models/Employer");
 
 module.exports = {
   getFeed: async (req, res) => {
@@ -14,6 +15,7 @@ module.exports = {
   getListing: async (req, res) => {
     try {
       const listing = await Listing.findById(req.params.id);
+      const employer = await Employer.findOne({ employer: req.body.user });
       const questions = await Question.find({ listing: req.params.id })
         .sort({ createdAt: "desc" })
         .lean();
@@ -21,6 +23,7 @@ module.exports = {
         listing: listing,
         user: req.user,
         questions: questions,
+        employer: employer,
       });
     } catch (err) {
       console.log(err);
