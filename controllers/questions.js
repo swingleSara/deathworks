@@ -6,6 +6,7 @@ module.exports = {
       await Question.create({
         question: req.body.question,
         listing: req.params.id,
+        user: req.user,
       });
       console.log("Question has been asked!");
       res.redirect(`/listing/${req.params.id}`);

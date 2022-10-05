@@ -2,6 +2,7 @@ const cloudinary = require("../middleware/cloudinary");
 const Listing = require("../models/Listing");
 const Question = require("../models/Question");
 const Employer = require("../models/Employer");
+const Seeker = require("../models/Seeker");
 const User = require("../models/User");
 
 module.exports = {
@@ -17,6 +18,7 @@ module.exports = {
     try {
       const listing = await Listing.findById(req.params.id);
       const employer = await Employer.findOne({ employer: req.body.user });
+      const seeker = await Seeker.findOne({ seeker: req.body.user });
       const questions = await Question.find({ listing: req.params.id })
         .sort({ createdAt: "desc" })
         .lean();
@@ -25,6 +27,7 @@ module.exports = {
         user: req.user,
         questions: questions,
         employer: employer,
+        seeker: seeker,
       });
     } catch (err) {
       console.log(err);
@@ -34,6 +37,7 @@ module.exports = {
     try {
       const listing = await Listing.findById(req.params.id);
       const employer = await Employer.findOne({ employer: req.body.user });
+      const seeker = await Seeker.findOne({ seeker: req.body.user });
       const user = await User.findById(req.user);
       const questions = await Question.find({ listing: req.params.id })
         .sort({ createdAt: "desc" })
@@ -43,6 +47,7 @@ module.exports = {
         user: user,
         questions: questions,
         employer: employer,
+        seeker: seeker,
       });
     } catch (err) {
       console.log(err);
