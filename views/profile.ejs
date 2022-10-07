@@ -8,28 +8,28 @@
               <% if (user.profilePic) { %>
                 <p><%= user.profilePic %></p>
               <% } %>
-              <a href="/publicProfile/<%=user._id%>" class="col-3 btn btn-primary">View Public Profile</a>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+              <a href="/publicProfile/<%=user._id%>" class="col-3 btn btn-secondary">View Public Profile</a>
+              <a href="/logout" class="col-3 btn btn-secondary">Logout</a>
           </div>
           <% if (status === "seeker" && !seeker.length) { %>
             <div class="row justify-content-center mt-5">
-              <a class="btn btn-primary" href="/createSeeker">Create Seeker Profile</a>
+              <a class="btn btn-secondary" href="/createSeeker">Create Seeker Profile</a>
             </div>
           <% } else if (status === "seeker") { %>
             <div class="row justify-content-center mt-5">
-             <a class="btn btn-primary" href="/editSeeker">Edit Seeker Profile</a>
+             <a class="btn btn-secondary" href="/editSeeker">Edit Seeker Profile</a>
             </div>
           <% } %>
           <% if (status === "employer" && !employer.length) { %>
             <div class="row justify-content-center mt-5">
-              <a class="btn btn-primary" href="/createEmployer">Create Employer Profile</a>
+              <a class="btn btn-secondary" href="/createEmployer">Create Employer Profile</a>
             </div>
             <% } else if (status === "employer") { %>
             <div class="row justify-content-center mt-5">
-              <a class="btn btn-primary" href="/editEmployer">Edit Employer Profile</a>
+              <a class="btn btn-secondary" href="/editEmployer">Edit Employer Profile</a>
             </div>
             <div class="row justify-content-center mt-5">
-              <a class="btn btn-primary" href="/createListing">Create Listing</a>
+              <a class="btn btn-secondary" href="/createListing">Create Listing</a>
             </div>
           <% } %>
       </div>
@@ -55,7 +55,7 @@
         <% } %>
         </ul>
         <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
+          <a class="btn btn-secondary" href="/feed">Return to Feed</a>
         </div>
       </div>  
     </div>
