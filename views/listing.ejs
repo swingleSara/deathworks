@@ -85,15 +85,15 @@
             <div class="accordion-body">
               <%if (questions[i].answer != undefined){ %>
                 <%=questions[i].answer%>
-              <%} else {%>
-                <%if(listing.user == user.id){ %>
-                  <h2>Answer the question</h2>
-                  <form action="/questions/addAnswer/<%=questions[i]._id%>/<%=listing.id%>?_method=PUT" method="POST">
-                    <label for="answer" class="form-label">Answer</label>
-                    <input type="text" class="form-control" id="answer" name="answer">
-                    <button type="submit" class="btn btn-secondary">Answer</button>
-                  </form>
-                <%}%>
+              <%} else if(listing.user == user.id) {%>
+                <h2>Answer the question</h2>
+                <form action="/questions/addAnswer/<%=questions[i]._id%>/<%=listing.id%>?_method=PUT" method="POST">
+                  <label for="answer" class="form-label">Answer</label>
+                  <input type="text" class="form-control" id="answer" name="answer">
+                  <button type="submit" class="btn btn-secondary">Answer</button>
+                </form>
+              <%} else { %>
+                This question has not been answered yet.
               <%}%>
             </div>
           </div>
