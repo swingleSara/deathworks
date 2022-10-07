@@ -3,7 +3,7 @@
   <div class="row justify-content-center mt-5">
     <div class="col-6">
       <h2><%=listing.title%></h2>
-      <div>Posted by: <a href="/publicProfile/<%=listing.user%>"><%=employer.name%></a></div>
+      <div>Posted by: <a href="/publicProfile/<%=listing.user%>" class="link-secondary"><%=employer.name%></a></div>
         <% if (listing.image) { %>
           <img class="img-fluid" src="<%= listing.image%>">
         <% } else {%>
@@ -22,7 +22,7 @@
       <% for(let i=0; i<questions.length; i++) {%>
         <li class="col-6 justify-content-between mt-5">
           <%=questions[i].question%>
-          <div>Asked by: <a href="/publicProfile/<%=questions[i].user%>"><%=seeker.name%></a></div>
+          <div>Asked by: <a href="/publicProfile/<%=questions[i].user%>" class="link-secondary"><%=seeker.name%></a></div>
           <%if (questions[i].answer != undefined){ %>
             <ul>
               <li><%=questions[i].answer%></li>

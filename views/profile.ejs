@@ -38,7 +38,7 @@
         <ul class="row list-unstyled">
         <% for(let i=0; i<listings.length; i++) { %>
           <li class="col-6 justify-content-between mt-5">
-            <a href="/listing/<%= listings[i]._id%>">
+            <a href="/listing/<%= listings[i]._id%>" class="link-secondary">
               <% if (!listings[i].image) { %>
                 <div>
                   <img class="img-fluid" src="/imgs/default-post-pic.jpg" alt="default post pic">
