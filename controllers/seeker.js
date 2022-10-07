@@ -15,7 +15,8 @@ module.exports = {
       if (!result) {
         await Seeker.create({
           name: req.body.name,
-          location: req.body.location,
+          city: req.body.city,
+          state: req.body.state,
           quals: req.body.quals,
           bioBlurb: req.body.bioBlurb,
           user: req.user.id,
@@ -25,7 +26,8 @@ module.exports = {
           name: req.body.name,
           image: result.secure_url,
           cloudinaryId: result.public_id,
-          location: req.body.location,
+          city: req.body.city,
+          state: req.body.state,
           quals: req.body.quals,
           bioBlurb: req.body.bioBlurb,
           user: req.user.id,
@@ -53,7 +55,8 @@ module.exports = {
           {
             $set: {
               name: req.body.name,
-              location: req.body.location,
+              city: req.body.city,
+              state: req.body.state,
               quals: req.body.quals,
               bioBlurb: req.body.bioBlurb,
               user: req.user.id,
@@ -68,7 +71,8 @@ module.exports = {
               name: req.body.name,
               image: result.secure_url,
               cloudinaryId: result.public_id,
-              location: req.body.location,
+              city: req.body.city,
+              state: req.body.state,
               quals: req.body.quals,
               bioBlurb: req.body.bioBlurb,
               user: req.user.id,

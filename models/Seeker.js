@@ -13,9 +13,13 @@ const SeekerSchema = new mongoose.Schema({
     type: String,
     require: false,
   },
-  location: {
-    type: Array,
-    require: false,
+  city: {
+    type: String,
+    require: true,
+  },
+  state: {
+    type: String,
+    require: true,
   },
   quals: {
     type: String,

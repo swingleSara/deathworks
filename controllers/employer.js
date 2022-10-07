@@ -16,8 +16,8 @@ module.exports = {
         await Employer.create({
           name: req.body.name,
           companyName: req.body.companyName,
-          location: req.body.location,
-          number: req.body.number,
+          city: req.body.city,
+          state: req.body.state,
           bioBlurb: req.body.bioBlurb,
           user: req.user.id,
         });
@@ -27,8 +27,8 @@ module.exports = {
           image: result.secure_url,
           cloudinaryId: result.public_id,
           companyName: req.body.companyName,
-          location: req.body.location,
-          number: req.body.number,
+          city: req.body.city,
+          state: req.body.state,
           bioBlurb: req.body.bioBlurb,
           user: req.user.id,
         });
@@ -56,8 +56,8 @@ module.exports = {
             $set: {
               name: req.body.name,
               companyName: req.body.companyName,
-              location: req.body.location,
-              number: req.body.number,
+              city: req.body.city,
+              state: req.body.state,
               bioBlurb: req.body.bioBlurb,
               user: req.user.id,
             },
@@ -72,8 +72,8 @@ module.exports = {
               image: result.secure_url,
               cloudinaryId: result.public_id,
               companyName: req.body.companyName,
-              location: req.body.location,
-              number: req.body.number,
+              city: req.body.city,
+              state: req.body.state,
               bioBlurb: req.body.bioBlurb,
               user: req.user.id,
             },

@@ -14,8 +14,7 @@
         <% } %>
         <p>Name: <%= employer.name %></p>
         <p>Company: <%= employer.companyName %></p>
-        <p>Location: <%= employer.location %></p>
-        <p>Number: <%= employer.number %></p>
+        <p>Location: <%= employer.city %>, <%= employer.state %></p>
         <p>About The Company: <%= employer.bioBlurb %></p>
         <% } %> <% if (seeker) { %> <% if (seeker.image) { %>
         <img class="img-fluid" src="<%= seeker.image %>" />
@@ -27,7 +26,7 @@
         />
         <% } %>
         <p>Name: <%= seeker.name %></p>
-        <p>Location: <%= seeker.location %></p>
+        <p>Location: <%= seeker.city %>, <%= seeker.state %></p>
         <p>Qualificiations: <%= seeker.quals %></p>
         <p>About Me: <%= seeker.bioBlurb %></p>
         <% } %>

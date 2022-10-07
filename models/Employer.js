@@ -17,13 +17,13 @@ const EmployerSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  location: {
-    type: Array,
-    require: false,
-  },
-  number: {
+  city: {
     type: String,
-    require: false,
+    require: true,
+  },
+  state: {
+    type: String,
+    require: true,
   },
   bioBlurb: {
     type: String,

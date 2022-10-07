@@ -1,63 +1,98 @@
-<%- include('partials/header') -%>
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-6">
-      <div class="mt-5">
-        <h2>Create Employer Profile</h2>
-        <form
-          action="/employer/createEmployer"
-          enctype="multipart/form-data"
-          method="POST"
-        >
-          <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" name="name" />
-          </div>
-          <div class="mb-3">
-            <label for="companyName" class="form-label">Company Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="companyName"
-              name="companyName"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="location" class="form-label">Location</label>
-            <input
-              type="text"
-              class="form-control"
-              id="location"
-              name="location"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="number" class="form-label">Number</label>
-            <input type="text" class="form-control" id="number" name="number" />
-          </div>
-          <div class="mb-3">
-            <label for="bioBlurb" class="form-label">About Me</label>
-            <textarea
-              class="form-control"
-              id="bioBlurb"
-              name="bioBlurb"
-            ></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="imgUpload" class="form-label">Image</label>
-            <input
-              type="file"
-              class="form-control"
-              id="imageUpload"
-              name="file"
-            />
-          </div>
-          <button type="submit" class="btn btn-secondary" value="Upload">
-            Submit
-          </button>
-        </form>
-      </div>
-    </div>
+<%- include("partials/header") -%>
+<h2>Create Employer Profile</h2>
+<form
+  class="row g-3"
+  action="/employer/createEmployer"
+  enctype="multipart/form-data"
+  method="POST"
+>
+  <div class="col-md-4">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name" required />
   </div>
-</div>
-<%- include('partials/footer') -%>
+  <div class="col-md-4">
+    <label for="companyName" class="form-label">Company Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="companyName"
+      name="companyName"
+      required
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="city" class="form-label">City</label>
+    <input type="text" class="form-control" id="city" name="city" required />
+  </div>
+  <div class="col-md-3">
+    <label for="state" class="form-label">State</label>
+    <select class="form-select" id="state" name="state" required>
+      <option selected disabled value="">Choose...</option>
+      <option>AL</option>
+      <option>AK</option>
+      <option>AZ</option>
+      <option>AR</option>
+      <option>CA</option>
+      <option>CO</option>
+      <option>CT</option>
+      <option>DE</option>
+      <option>DC</option>
+      <option>FL</option>
+      <option>GA</option>
+      <option>HI</option>
+      <option>ID</option>
+      <option>IL</option>
+      <option>IN</option>
+      <option>IA</option>
+      <option>KS</option>
+      <option>KY</option>
+      <option>LA</option>
+      <option>ME</option>
+      <option>MD</option>
+      <option>MA</option>
+      <option>MI</option>
+      <option>MN</option>
+      <option>MS</option>
+      <option>MO</option>
+      <option>MT</option>
+      <option>NE</option>
+      <option>NV</option>
+      <option>NH</option>
+      <option>NJ</option>
+      <option>NM</option>
+      <option>NY</option>
+      <option>NC</option>
+      <option>ND</option>
+      <option>OH</option>
+      <option>OK</option>
+      <option>OR</option>
+      <option>PA</option>
+      <option>RI</option>
+      <option>SC</option>
+      <option>SD</option>
+      <option>TN</option>
+      <option>TX</option>
+      <option>UT</option>
+      <option>VT</option>
+      <option>VA</option>
+      <option>WA</option>
+      <option>WV</option>
+      <option>WI</option>
+      <option>WY</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="bioBlurb" class="form-label">About Me</label>
+    <textarea class="form-control" id="bioBlurb" name="bioBlurb"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="imgUpload" class="form-label">Image</label>
+    <input type="file" class="form-control" id="imageUpload" name="file" />
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-secondary" value="Upload">
+      Submit
+    </button>
+  </div>
+</form>
+<%- include("partials/footer") -%>
