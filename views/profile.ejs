@@ -40,7 +40,8 @@
           <li class="col-6 justify-content-between mt-5">
             <a href="/listing/<%= listings[i]._id%>">
               <% if (!listings[i].image) { %>
-                <div class="img-fluid"></div>
+                <div>
+                  <img class="img-fluid" src="/imgs/default-post-pic.jpg" alt="default post pic">
                   <h3><%=listings[i].title%></h3>
                   <h4><%=listings[i].location%></h4>
                   <h4><%=listings[i].company%></h4>

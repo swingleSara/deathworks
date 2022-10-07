@@ -6,6 +6,8 @@
       <div>Posted by: <a href="/publicProfile/<%=listing.user%>"><%=employer.name%></a></div>
         <% if (listing.image) { %>
           <img class="img-fluid" src="<%= listing.image%>">
+        <% } else {%>
+          <img class="img-fluid" src="/imgs/default-post-pic.jpg" alt="default post pic">
         <% } %>
     </div>
     <div class="col-3 mt-5">

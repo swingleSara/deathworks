@@ -10,15 +10,13 @@
               <a href="/listing/<%=listings[i]._id%>">
             <% } %>
             <% if (!listings[i].image) { %>
-                <div class="img-fluid"></div>
-                  <h3><%=listings[i].title%></h3>
-                  <h4><%=listings[i].location%></h4>
-                  <h4><%=listings[i].company%></h4>
+                <div class="img-fluid">
+                  <img class="img-fluid" src="/imgs/default-post-pic.jpg" alt="default post pic">
                 </div>
               <% } else { %>
                 <img class="img-fluid" src="<%= listings[i].image%>">
-                <%=listings[i].title%>
               <% } %>
+              <%=listings[i].title%>
             </a>
           </li>
         <% } %>
