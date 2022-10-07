@@ -99,7 +99,7 @@ module.exports = {
       // Find listing by id
       let listing = await Listing.findById({ _id: req.params.id });
       // Delete image from cloudinary
-      if (!listing.cloudinaryId) {
+      if (listing.cloudinaryId) {
         await cloudinary.uploader.destroy(listing.cloudinaryId);
       }
       // Delete listing from db
@@ -107,7 +107,7 @@ module.exports = {
       console.log("Deleted listing");
       res.redirect("/profile");
     } catch (err) {
-      res.redirect("/profile");
+      console.log(err);
     }
   },
 };
