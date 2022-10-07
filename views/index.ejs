@@ -2,8 +2,9 @@
   <div class="container">
     <div class="row justify-content-center mt-5">
       <ul class="row list-unstyled">
-        <% for(var i=0; i<listings.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
+        <div>
+        <% for(let i=0; i<listings.length; i++) {%>
+          <li class="col-6 justify-content-between mt-5 card">
             <% if (!user) { %>
               <a href="/publicListing/<%= listings[i]._id%>" class="link-secondary">
             <% } else { %>
@@ -11,16 +12,21 @@
             <% } %>
             <% if (!listings[i].image) { %>
                 <div>
-                  <img class="img-fluid" src="/imgs/default-post-pic.jpg" alt="default post pic">
+                  <img class="img-fluid card-img-top" src="/imgs/default-post-pic.jpg" alt="default post pic">
                 </div>
               <% } else { %>
-                <img class="img-fluid" src="<%= listings[i].image%>">
+                <div>
+                  <img class="img-fluid card-img-top" src="<%= listings[i].image%>">
+                </div>
               <% } %>
-              <%=listings[i].title%>
+              <div class="card-body">
+                <h5 class="card-title text-center"><%=listings[i].title%></h5>
+              </div>
             </a>
           </li>
         <% } %>
-        </ul>
+        </div>
+      </ul>
     </div>
   </div>  
 

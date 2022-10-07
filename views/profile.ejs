@@ -36,24 +36,27 @@
   </div>
       <div class="col-6">
         <ul class="row list-unstyled">
+          <div>
         <% for(let i=0; i<listings.length; i++) { %>
-          <li class="col-6 justify-content-between mt-5">
+          <li class="col-6 justify-content-between mt-5 card">
             <a href="/listing/<%= listings[i]._id%>" class="link-secondary">
               <% if (!listings[i].image) { %>
                 <div>
-                  <img class="img-fluid" src="/imgs/default-post-pic.jpg" alt="default post pic">
-                  <h3><%=listings[i].title%></h3>
-                  <h4><%=listings[i].location%></h4>
-                  <h4><%=listings[i].company%></h4>
+                  <img class="img-fluid card-img-top" src="/imgs/default-post-pic.jpg" alt="default post pic">
                 </div>
               <% } else { %>
-                <img class="img-fluid" src="<%= listings[i].image%>">
-                <%=listings[i].title%>
+                <div>
+                  <img class="img-fluid card-img-top" src="<%= listings[i].image%>">
+                </div>
               <% } %>
+              <div class="card-body">
+                <h5 class="card-title text-center"><%=listings[i].title%></h5>
+              </div>
             </a>
           </li>
         <% } %>
-        </ul>
+        </div>
+      </ul>
         <div class="row justify-content-center mt-5">
           <a class="btn btn-secondary" href="/feed">Return to Feed</a>
         </div>
