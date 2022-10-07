@@ -3,14 +3,28 @@
   <div class="row mt-5">
     <div class="col-6">
       <div>
-        <% if (employer) { %>
+        <% if (employer) { %> <% if (employer.image) { %>
+        <img class="img-fluid" src="<%= employer.image %>" />
+        <% } else { %>
+        <img
+          class="img-fluid"
+          src="/imgs/default-profile-pic.jpg"
+          alt="default profile pic"
+        />
+        <% } %>
         <p>Name: <%= employer.name %></p>
         <p>Company: <%= employer.companyName %></p>
         <p>Location: <%= employer.location %></p>
         <p>Number: <%= employer.number %></p>
         <p>About The Company: <%= employer.bioBlurb %></p>
         <% } %> <% if (seeker) { %> <% if (seeker.image) { %>
-        <p><%= seeker.image %></p>
+        <img class="img-fluid" src="<%= seeker.image %>" />
+        <% } else { %>
+        <img
+          class="img-fluid"
+          src="/imgs/default-profile-pic.jpg"
+          alt="default profile pic"
+        />
         <% } %>
         <p>Name: <%= seeker.name %></p>
         <p>Location: <%= seeker.location %></p>
