@@ -1,33 +1,33 @@
 <%- include('partials/header') -%>
+<!-- Feed -->
   <div class="container">
-    <div class="row justify-content-center mt-5">
-      <ul class="row row-cols-3 list-unstyled">
-        <% for(let i=0; i<listings.length; i++) {%>
-          <li class="col justify-content-between mt-5 card">
-            <% if (!user) { %>
-              <a href="/publicListing/<%= listings[i]._id%>" class="link-secondary">
-            <% } else { %>
-              <a href="/listing/<%=listings[i]._id%>" class="link-secondary">
-            <% } %>
+    <div class="row row-cols-3">
+      <% for(let i=0; i<listings.length; i++) {%>
+        <div class="col card">
+          <% if (!user) { %>
+            <a href="/publicListing/<%= listings[i]._id%>" class="link-secondary">
+          <% } else { %>
+            <a href="/listing/<%=listings[i]._id%>" class="link-secondary">
+          <% } %>
             <% if (!listings[i].image) { %>
-                <div>
-                  <img class="img-fluid card-img-top" src="/imgs/default-post-pic.jpg" alt="default post pic">
-                </div>
-              <% } else { %>
-                <div>
-                  <img class="img-fluid card-img-top" src="<%= listings[i].image%>">
-                </div>
-              <% } %>
-              <div class="card-body">
-                <h5 class="card-title text-center align-text-bottom"><%=listings[i].title%></h5>
+              <div>
+                <img class="img-fluid card-img-top" src="/imgs/default-post-pic.jpg" alt="default post pic">
               </div>
-            </a>
-          </li>
-        <% } %>
-      </ul>
+            <% } else { %>
+              <div>
+                <img class="img-fluid card-img-top" src="<%= listings[i].image%>">
+              </div>
+            <% } %>
+            <div class="card-body">
+              <h5 class="card-title text-center"><%=listings[i].title%></h5>
+            </div>
+          </a>
+        </div>
+      <% } %>
     </div>
   </div>  
 
+<!-- User Menu -->
 <main class="container">
   <div class="row justify-content-around mt-5">
     <a href="/login" class="col-3 btn btn-secondary"> Login</a>

@@ -1,65 +1,71 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="row mt-5">
+<!-- User Info -->
+  <div class="container">
+    <div class="row mt-5">
       <div class="col">
-          <div>
-              <p>User Name: <%= user.userName %></p>
-              <p>Email: <%= user.email %></p>
-              <% if (user.profilePic) { %>
-                <p><%= user.profilePic %></p>
-              <% } %>
-              <a href="/publicProfile/<%=user._id%>" class="col-3 btn btn-secondary">View Public Profile</a>
-              <a href="/logout" class="col-3 btn btn-secondary">Logout</a>
-          </div>
-          <% if (status === "seeker" && !seeker.length) { %>
-            <div class="row justify-content-center mt-5">
-              <a class="btn btn-secondary" href="/createSeeker">Create Seeker Profile</a>
-            </div>
-          <% } else if (status === "seeker") { %>
-            <div class="row justify-content-center mt-5">
-             <a class="btn btn-secondary" href="/editSeeker">Edit Seeker Profile</a>
-            </div>
+        <div>
+          <p>User Name: <%= user.userName %></p>
+          <p>Email: <%= user.email %></p>
+          <% if (user.profilePic) { %>
+            <p><%= user.profilePic %></p>
           <% } %>
-          <% if (status === "employer" && !employer.length) { %>
-            <div class="row justify-content-center mt-5">
-              <a class="btn btn-secondary" href="/createEmployer">Create Employer Profile</a>
-            </div>
-            <% } else if (status === "employer") { %>
-            <div class="row justify-content-center mt-5">
-              <a class="btn btn-secondary" href="/editEmployer">Edit Employer Profile</a>
-            </div>
-            <div class="row justify-content-center mt-5">
-              <a class="btn btn-secondary" href="/createListing">Create Listing</a>
-            </div>
-          <% } %>
-      </div>
-  </div>
-      <div class="col">
-        <ul class="row list-unstyled row-cols-3">
-        <% for(let i=0; i<listings.length; i++) { %>
-          <li class="col justify-content-between mt-5 card">
-            <a href="/listing/<%= listings[i]._id%>" class="link-secondary">
-              <% if (!listings[i].image) { %>
-                <div>
-                  <img class="img-fluid card-img-top" src="/imgs/default-post-pic.jpg" alt="default post pic">
-                </div>
-              <% } else { %>
-                <div>
-                  <img class="img-fluid card-img-top" src="<%= listings[i].image%>">
-                </div>
-              <% } %>
-              <div class="card-body">
-                <h5 class="card-title text-center align-text-bottom"><%=listings[i].title%></h5>
-              </div>
-            </a>
-          </li>
-        <% } %>
-      </ul>
-        <div class="row justify-content-center mt-5">
-          <a class="btn btn-secondary" href="/feed">Return to Feed</a>
+          <a href="/publicProfile/<%=user._id%>" class="col-3 btn btn-secondary">View Public Profile</a>
+          <a href="/logout" class="col-3 btn btn-secondary">Logout</a>
         </div>
-      </div>  
+        <% if (status === "seeker" && !seeker.length) { %>
+          <div class="row justify-content-center mt-5">
+            <a class="btn btn-secondary" href="/createSeeker">Create Seeker Profile</a>
+          </div>
+        <% } else if (status === "seeker") { %>
+          <div class="row justify-content-center mt-5">
+            <a class="btn btn-secondary" href="/editSeeker">Edit Seeker Profile</a>
+          </div>
+        <% } %>
+        <% if (status === "employer" && !employer.length) { %>
+          <div class="row justify-content-center mt-5">
+            <a class="btn btn-secondary" href="/createEmployer">Create Employer Profile</a>
+          </div>
+        <% } else if (status === "employer") { %>
+          <div class="row justify-content-center mt-5">
+            <a class="btn btn-secondary" href="/editEmployer">Edit Employer Profile</a>
+          </div>
+          <div class="row justify-content-center mt-5">
+            <a class="btn btn-secondary" href="/createListing">Create Listing</a>
+          </div>
+        <% } %>
+      </div>
     </div>
   </div>
-</div>
+
+<!-- Feed -->
+  <div class="container">
+    <div class="row row-cols-3">
+      <% for(let i=0; i<listings.length; i++) {%>
+        <div class="col card">
+          <a href="/listing/<%= listings[i]._id%>" class="link-secondary">
+            <% if (!listings[i].image) { %>
+              <div>
+                <img class="img-fluid card-img-top" src="/imgs/default-post-pic.jpg" alt="default post pic">
+              </div>
+            <% } else { %>
+              <div>
+                <img class="img-fluid card-img-top" src="<%= listings[i].image%>">
+              </div>
+             <% } %>
+            <div class="card-body">
+              <h5 class="card-title text-center"><%=listings[i].title%></h5>
+            </div>
+          </a>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+<!-- Return To Feed Button -->
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <a class="btn btn-secondary" href="/feed">Return to Feed</a>
+    </div>
+  </div>
+
 <%- include('partials/footer') -%>
