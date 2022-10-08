@@ -1,7 +1,6 @@
 const Listing = require("../models/Listing");
 const Employer = require("../models/Employer");
 const Seeker = require("../models/Seeker");
-const User = require("../models/User");
 
 module.exports = {
   getProfile: async (req, res) => {
