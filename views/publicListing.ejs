@@ -51,7 +51,7 @@
               </li>
             </ul>
             <!-- Signup Modal Button -->
-            <% if (!user) { %>
+            <% if (!employer || !seeker) { %>
               <button class="btn btn-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#signup">Signup</button>
             <%  } %>
             <!-- <form class="d-flex">
@@ -105,9 +105,6 @@
               data-bs-target="#question-<%=i%>"
             >
               <div><%=questions[i].question%></div>
-              <div>
-                Asked by: <a href="/publicProfile/<%=questions[i].user%>" class="link-secondary"><%=seeker.name%></a>
-              </div>
             </button>
           </h2>
           <div
@@ -116,6 +113,9 @@
             data-bs-parent="#questions"
           >
             <div class="accordion-body">
+              <div>
+                Asked by: <a href="/publicProfile/<%=questions[i].user%>" class="link-secondary"><%=seeker.name%></a>
+              </div>
               <%if (questions[i].answer != undefined){ %>
                 <%=questions[i].answer%>
               <%} else {%>

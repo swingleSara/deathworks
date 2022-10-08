@@ -72,9 +72,6 @@
               data-bs-target="#question-<%=i%>"
             >
               <div><%=questions[i].question%></div>
-              <div>
-                Asked by: <a href="/publicProfile/<%=questions[i].user%>" class="link-secondary"><%=seeker.name%></a>
-              </div>
             </button>
           </h2>
           <div
@@ -83,6 +80,9 @@
             data-bs-parent="#questions"
           >
             <div class="accordion-body">
+              <div>
+                Asked by: <a href="/publicProfile/<%=questions[i].user%>" class="link-secondary"><%=seeker.name%></a>
+              </div>
               <%if (questions[i].answer != undefined){ %>
                 <%=questions[i].answer%>
               <%} else if(listing.user == user.id) {%>
