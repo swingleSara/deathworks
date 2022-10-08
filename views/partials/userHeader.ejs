@@ -83,28 +83,23 @@
                       >Edit Employer Profile</a
                     >
                   </li>
-                  <li>
-                    <a href="/createListing" class="dropdown-item"
-                      >Create Listing</a
-                    >
-                  </li>
                   <% } %>
                 </ul>
               </li>
-              <li class="nav-item">
-                <a href="/" class="nav-link">Home</a>
+              <% if (status === "employer") { %>
+              <li>
+                <a href="/createListing" class="nav-link">Create Listing</a>
               </li>
-              <% if (!user) { %>
+              <% } %>
               <li class="nav-item">
-                <button data-bs-toggle="modal" data-bs-target="#signup">
-                  Signup
-                </button>
+                <a href="/profile" class="nav-link">Home</a>
               </li>
-              <% } else { %>
+              <li class="nav-item">
+                <a href="/feed" class="nav-link">Feed</a>
+              </li>
               <li class="nav-item">
                 <a href="/logout" class="nav-link">Logout</a>
               </li>
-              <% } %>
             </ul>
             <!-- <form class="d-flex">
               <input
