@@ -1,4 +1,5 @@
 const Listing = require("../models/Listing");
+const Question = require("../models/Question");
 const Employer = require("../models/Employer");
 const Seeker = require("../models/Seeker");
 
@@ -21,11 +22,20 @@ module.exports = {
   },
   getPublicProfile: async (req, res) => {
     try {
+      const listings = await Listing.find({ user: req.params.id }).sort({ createdAt: "desc" }).lean();
+      const questions = await Question.find({ user: req.params.id }).sort({ createdAt: "desc"}).lean();
       const employer = await Employer.findOne({ user: req.params.id });
       const seeker = await Seeker.findOne({ user: req.params.id });
+      const allListings = await Listing.find().sort({createdAt: "desc"}).lean();
+      const allQuestions = await Question.find().sort({createdAt: "desc"}).lean();
+
       res.render("publicProfile.ejs", {
+        listings: listings,
+        questions: questions,
         employer: employer,
         seeker: seeker,
+        allListings: allListings,
+        allQuestions: allQuestions
       });
     } catch (err) {
       console.log(err);
