@@ -1,9 +1,24 @@
 const cloudinary = require("../middleware/cloudinary");
 const Seeker = require("../models/Seeker");
+const Employer = require("../models/Employer");
+const Listing = require("../models/Listing");
 
 module.exports = {
-  getCreateSeeker: (req, res) => {
-    res.render("createSeeker.ejs");
+  getCreateSeeker: async (req, res) => {
+    try {
+      const listings = await Listing.find().sort({ createdAt: "desc" }).lean();
+      const employer = await Employer.find({ user: req.user.id });
+      const seeker = await Seeker.find({ user: req.user.id });
+      res.render("createSeeker.ejs", { 
+        listings: listings,
+        user: req.user,
+        status: req.user.status,
+        employer: employer,
+        seeker: seeker,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   },
   createSeeker: async (req, res) => {
     try {
@@ -40,8 +55,20 @@ module.exports = {
     }
   },
   getEditSeeker: async (req, res) => {
-    const seeker = await Seeker.findOne({ user: req.user });
-    res.render("editSeeker.ejs", { seeker: seeker });
+    try {
+      const listings = await Listing.find().sort({ createdAt: "desc" }).lean();
+      const employer = await Employer.find({ user: req.user.id });
+      const seeker = await Seeker.find({ user: req.user.id });
+      res.render("editSeeker.ejs", { 
+        listings: listings,
+        user: req.user,
+        status: req.user.status,
+        employer: employer,
+        seeker: seeker,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   },
   editSeeker: async (req, res) => {
     try {
