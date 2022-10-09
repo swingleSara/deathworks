@@ -9,7 +9,15 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const listings = await Listing.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { listings: listings });
+      const employer = await Employer.findOne({ employer: req.body.user });
+      const seeker = await Seeker.findOne({ seeker: req.body.user });
+      res.render("feed.ejs", { 
+        user: req.user,
+        status: req.user.status,
+        listings: listings,
+        employer: employer,
+        seeker: seeker
+       });
     } catch (err) {
       console.log(err);
     }
