@@ -19,12 +19,14 @@ module.exports = {
       const listing = await Listing.findById(req.params.id);
       const employer = await Employer.findOne({ employer: req.body.user });
       const seeker = await Seeker.findOne({ seeker: req.body.user });
+      const user = await User.findById(req.user);
       const questions = await Question.find({ listing: req.params.id })
         .sort({ createdAt: "desc" })
         .lean();
       res.render("listing.ejs", {
         listing: listing,
-        user: req.user,
+        user: user,
+        status: user.status,
         questions: questions,
         employer: employer,
         seeker: seeker,
