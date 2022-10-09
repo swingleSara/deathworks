@@ -29,6 +29,9 @@
 <section id="questions" class="p-5">
   <div class="container">
     <h2 class="text-center mb-4">Questions About The Job</h2>
+    <% if (!questions.length) { %>
+      <span class="text-center">There are currently no questions about this listing.</span>
+    <% } %>
     <div class="accordion accordion-flush" id="questions">
       <% for(let i=0; i<questions.length; i++) {%>
         <div class="accordion-item">
