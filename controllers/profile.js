@@ -27,15 +27,15 @@ module.exports = {
       const employer = await Employer.findOne({ user: req.params.id });
       const seeker = await Seeker.findOne({ user: req.params.id });
       const allListings = await Listing.find().sort({createdAt: "desc"}).lean();
-      const allQuestions = await Question.find().sort({createdAt: "desc"}).lean();
 
       res.render("publicProfile.ejs", {
+        user: req.user,
+        status: req.user.status,
         listings: listings,
         questions: questions,
         employer: employer,
         seeker: seeker,
         allListings: allListings,
-        allQuestions: allQuestions
       });
     } catch (err) {
       console.log(err);
