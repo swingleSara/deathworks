@@ -32,7 +32,6 @@ module.exports = {
           name: req.body.name,
           city: req.body.city,
           state: req.body.state,
-          quals: req.body.quals,
           bioBlurb: req.body.bioBlurb,
           user: req.user.id,
         });
@@ -43,7 +42,6 @@ module.exports = {
           cloudinaryId: result.public_id,
           city: req.body.city,
           state: req.body.state,
-          quals: req.body.quals,
           bioBlurb: req.body.bioBlurb,
           user: req.user.id,
         });
@@ -84,7 +82,6 @@ module.exports = {
               name: req.body.name,
               city: req.body.city,
               state: req.body.state,
-              quals: req.body.quals,
               bioBlurb: req.body.bioBlurb,
               user: req.user.id,
             },
@@ -100,7 +97,6 @@ module.exports = {
               cloudinaryId: result.public_id,
               city: req.body.city,
               state: req.body.state,
-              quals: req.body.quals,
               bioBlurb: req.body.bioBlurb,
               user: req.user.id,
             },

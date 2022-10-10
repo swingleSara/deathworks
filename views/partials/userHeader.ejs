@@ -40,29 +40,30 @@
 
                   <!-- Create Employer Modal Link -->
                   <% if (status === "employer" && !employer.length) { %>
-                  <li>
-                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createEmployer">Create Employer Profile</a>
-                  </li>
+                    <li>
+                      <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createEmployer">Create Employer Profile</a>
+                    </li>
 
                   <!-- Edit Employer Modal Link -->
                   <% } else if (status === "employer") { %>
-                  <li>
-                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editEmployer">Edit Employer Profile</a>
-                  </li>
+                    <li>
+                      <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editEmployer">Edit Employer Profile</a>
+                    </li>
+                  <% } %>
 
                   <!-- Create Seeker Modal Link -->
                   <% if (status === "seeker" && !seeker.length) { %>
-                  <li>
-                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createSeeker">Create Seeker Profile</a>
-                  </li>
+                    <li>
+                      <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createSeeker">Create Seeker Profile</a>
+                    </li>
 
                   <!-- Edit Seeker Modal Link -->
                   <% } else if (status === "seeker") { %>
-                  <li>
-                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editSeeker">Edit Seeker Profile</a>
-                  </li>
-
+                    <li>
+                      <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editSeeker">Edit Seeker Profile</a>
+                    </li>
                   <% } %>
+
                 </ul>
               </li>
 

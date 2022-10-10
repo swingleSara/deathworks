@@ -21,10 +21,6 @@ const SeekerSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  quals: {
-    type: String,
-    require: false,
-  },
   bioBlurb: {
     type: String,
     require: false,
