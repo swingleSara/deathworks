@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
   <!-- Head -->
   <head>
     <meta charset="UTF-8" />
@@ -15,7 +15,7 @@
 
   <!-- Body -->
   <body>
-    
+
     <!-- Header -->
     <header>
       <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -31,54 +31,18 @@
           <!-- Nav Bar -->
           <div id="navmenu" class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">Profile</a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="/publicProfile/<%=user._id%>" class="dropdown-item">Public Profile</a>
-                  </li>
-                  <% if (status === "seeker" && !seeker.length) { %>
-                  <li>
-                    <a href="/createSeeker" class="dropdown-item">Create Seeker Profile</a>
-                  </li>
-                  <% } else if (status === "seeker") { %>
-                  <li>
-                    <a href="/editSeeker" class="dropdown-item">Edit Seeker Profile</a>
-                  </li>
-                  <% } %>
-
-                  <!-- Create Employer Modal Button -->
-                  <% if (status === "employer" && !employer.length) { %>
-                  <li>
-                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createEmployer">Create Employer Profile</a>
-                  </li>
-
-                  <!-- Edit Employer Modal Button -->
-                  <% } else if (status === "employer") { %>
-                  <li>
-                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editEmployer">Edit Employer Profile</a>
-                  </li>
-                  <% } %>
-                </ul>
-              </li>
-
-              <!-- Create Listing Modal Button -->
-              <% if (status === "employer") { %>
-                <li>
-                  <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#createListing">Create Listing</a>
-                </li>
-              <% } %>
-
-              <!-- Remaining Nav Bar -->
               <li class="nav-item">
-                <a href="/profile" class="nav-link">Home</a>
+                <a href="/" class="nav-link">Home</a>
               </li>
               <li class="nav-item">
-                <a href="/feed" class="nav-link">Feed</a>
+                <a href="/login" class="nav-link">Login</a>
               </li>
+
+              <!-- Signup Modal Button -->
               <li class="nav-item">
-                <a href="/logout" class="nav-link">Logout</a>
+                <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#signup">Signup</a>
               </li>
+
             </ul>
 
             <!-- Search Bar (When Completed) -->
@@ -92,7 +56,7 @@
                 Search
               </button>
             </form> -->
-            
+
           </div>
         </div>
       </nav>

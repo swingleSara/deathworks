@@ -1,29 +1,26 @@
-<% if (user) { %>
-  <%-include("partials/userHeader")-%>
-<% } else { %>
-  <%-include("partials/header")-%>
-<% } %>
-<!-- Feed -->
-  <div class="container">
-    <div class="row row-cols-3">
-      <% for(let i=0; i<listings.length; i++) {%>
-        <div class="col card g-2">
-          <a href="/listing/<%= listings[i]._id%>" class="link-secondary">
-            <% if (!listings[i].image) { %>
-              <div>
-                <img class="img-fluid card-img-top" src="/imgs/default-post-pic.jpg" alt="default post pic">
-              </div>
-            <% } else { %>
-              <div>
-                <img class="img-fluid card-img-top" src="<%= listings[i].image%>">
-              </div>
-             <% } %>
-            <div class="card-body">
-              <h5 class="card-title text-center"><%=listings[i].title%></h5>
+<%- include("partials/header") -%>
+    <!-- Feed -->
+      <div class="container">
+        <div class="row row-cols-3">
+          <% for(let i=0; i<listings.length; i++) {%>
+            <div class="col card g-2">
+              <a href="/listing/<%= listings[i]._id%>" class="link-secondary">
+                <% if (!listings[i].image) { %>
+                  <div>
+                    <img class="img-fluid card-img-top" src="/imgs/default-post-pic.jpg" alt="default post pic">
+                  </div>
+                <% } else { %>
+                  <div>
+                    <img class="img-fluid card-img-top" src="<%= listings[i].image%>">
+                  </div>
+                <% } %>
+                <div class="card-body">
+                  <h5 class="card-title text-center"><%=listings[i].title%></h5>
+                </div>
+              </a>
             </div>
-          </a>
+          <% } %>
         </div>
-      <% } %>
-    </div>
-  </div>  
+      </div>
+      
 <%- include("partials/footer") -%>
