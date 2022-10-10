@@ -1,12 +1,16 @@
 <main class="container">
   <div class="row justify-content-center">
     <section class="col-6 mt-5">
-      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-      <div class="alert alert-danger"><%= el.msg %></div>
-      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
-      messages.info.forEach( el => { %>
-      <div class="alert alert-info"><%= el.msg %></div>
-      <% }) %> <% } %>
+      <% if (locals.messages.errors) { %> 
+        <% messages.errors.forEach((elem) => { %>
+          <div class="alert alert-danger"><%= elem.msg %></div>
+          <% }) %>
+      <% } %>
+      <% if (locals.messages.info) { %>
+        <% messages.info.forEach((elem) => { %>
+          <div class="alert alert-info"><%= elem.msg %></div>
+          <% }) %>
+      <% } %>
       <form action="/signup" method="POST">
         <div class="mb-3">
           <label for="userName" class="form-label">User Name</label>

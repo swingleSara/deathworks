@@ -17,9 +17,9 @@
 
 <!-- Feed -->
   <div class="container">
-    <div class="row row-cols-3">
+    <div class="row">
       <% for(let i=0; i<listings.length; i++) {%>
-        <div class="col card g-2">
+        <div class="col-md card g-2">
           <a href="/listing/<%= listings[i]._id%>" class="link-secondary">
             <% if (!listings[i].image) { %>
               <div>
