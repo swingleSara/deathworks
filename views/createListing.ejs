@@ -1,35 +1,19 @@
-<%- include("partials/header") -%>
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-6">
-      <div class="mt-5">
-        <h2>Add a listing</h2>
-        <form
-          action="/listing/createListing"
-          enctype="multipart/form-data"
-          method="POST"
-        >
+<main class="container">
+  <div class="row justify-content-center">
+    <section class="mt-5">
+        <h2>Create Listing</h2>
+        <form action="/listing/createListing" enctype="multipart/form-data" method="POST">
           <div class="mb-3">
             <label for="title" class="form-label">Position Title</label>
             <input type="text" class="form-control" id="title" name="title" />
           </div>
           <div class="mb-3">
             <label for="location" class="form-label">Location</label>
-            <input
-              type="text"
-              class="form-control"
-              id="location"
-              name="location"
-            />
+            <input type="text" class="form-control" id="location" name="location"/>
           </div>
           <div class="mb-3">
             <label for="company" class="form-label">Hiring Company</label>
-            <input
-              type="text"
-              class="form-control"
-              id="company"
-              name="company"
-            />
+            <input type="text" class="form-control" id="company" name="company"/>
           </div>
           <div class="mb-3">
             <label for="number" class="form-label">Contact Phone</label>
@@ -37,41 +21,24 @@
           </div>
           <div class="mb-3">
             <label for="address" class="form-label">Contact Address</label>
-            <textarea
-              class="form-control"
-              id="address"
-              name="address"
-            ></textarea>
+            <textarea class="form-control" id="address" name="address"></textarea>
           </div>
           <div class="mb-3">
             <label for="site" class="form-label">Company Site</label>
             <input type="text" class="form-control" id="site" name="site" />
           </div>
           <div class="mb-3">
-            <label for="description" class="form-label"
-              >Position Description</label
-            >
-            <textarea
-              class="form-control"
-              id="description"
-              name="description"
-            ></textarea>
+            <label for="description" class="form-label">Position Description</label>
+            <textarea class="form-control" id="description" name="description"></textarea>
           </div>
           <div class="mb-3">
             <label for="imgUpload" class="form-label">Image</label>
-            <input
-              type="file"
-              class="form-control"
-              id="imageUpload"
-              name="file"
-            />
+            <input type="file" class="form-control" id="imageUpload" name="file"/>
           </div>
           <button type="submit" class="btn btn-secondary" value="Upload">
             Submit
           </button>
         </form>
-      </div>
-    </div>
+    </section>
   </div>
-</div>
-<%- include("partials/footer") -%>
+</main>
