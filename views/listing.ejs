@@ -15,11 +15,13 @@
               <li class="list-group-item">Job Description: <%=listing.description%></li>
             </ul>
           </div>
-          <% if (listing.image) { %>
-            <img class="img-fluid w-50" src="<%= listing.image%>"/>
-          <% } else { %>
-            <img class="img-fluid w-50" src="/imgs/default-post-pic.jpg" alt="default post pic"/>
-          <% } %>
+          <div class="w-50 justify-content-center">
+            <% if (listing.image) { %>
+              <img class="img-fluid w-50" src="<%= listing.image%>"/>
+            <% } else { %>
+              <img class="img-fluid w-50" src="/imgs/default-post-pic.jpg" alt="default post pic"/>
+            <% } %>
+          </div>
         </div>
       </div>
 
@@ -34,6 +36,7 @@
     </section>
 
         <!-- Ask A Question -->
+      <section class="container">
         <div class="mt-5">
           <%if(listing.user != user.id){ %>
             <h2>Ask a question</h2>
@@ -46,9 +49,7 @@
             </form>
           <%}%>
         </div>
-
-      </div>
-    </section>
+      </section>
 
     <!-- Questions Accordian  -->
     <section id="questions" class="p-5">
