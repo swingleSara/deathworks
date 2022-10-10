@@ -13,7 +13,11 @@ const ListingSchema = new mongoose.Schema({
     type: String,
     require: false,
   },
-  location: {
+  city: {
+    type: String,
+    required: true,
+  },
+  state: {
     type: String,
     required: true,
   },
@@ -22,10 +26,6 @@ const ListingSchema = new mongoose.Schema({
     required: true,
   },
   number: {
-    type: Array,
-    required: true,
-  },
-  address: {
     type: Array,
     required: true,
   },

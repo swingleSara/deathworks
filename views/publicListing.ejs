@@ -1,24 +1,25 @@
 <%- include("partials/publicHeader") -%>
 
     <!-- Listing -->
-    <section class="container">
-      <div class="row justify-content-center mt-5">
-        <div class="col-6">
-          <h2><%=listing.title%></h2>
-          <div>Posted by: <a href="/publicProfile/<%=listing.user%>" class="link-secondary"><%=employer.name%></a></div>
-            <% if (listing.image) { %>
-              <img class="img-fluid" src="<%= listing.image%>">
-            <% } else {%>
-              <img class="img-fluid" src="/imgs/default-post-pic.jpg" alt="default post pic">
-            <% } %>
-        </div>
-        <div class="col-3 mt-5">
-          <h4><%=listing.location%></h4>
-          <h3><%=listing.company%></h3>
-          <h3><%=listing.number%></h3>
-          <h3><%=listing.address%></h3>
-          <h5><%=listing.site%></h5>
-          <h2><%=listing.description%></h2>
+    <section class="p-5 text-center">
+      <h1><%=listing.title%></h1>
+      <span>Posted by: <a href="/publicProfile/<%=listing.user%>" class="link-secondary"><%=employer.name%></a></span>
+      <div class="container bg-dark text-light mt-5">
+        <div class="d-sm-flex p-5">
+          <div class="w-50">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Company: <%=listing.company%></li>
+              <li class="list-group-item">Location: <%=listing.city%>, <%=listing.state%></li>
+              <li class="list-group-item">Telephone: <%=listing.number%></li>
+              <li class="list-group-item">Business Site: <%=listing.site%></li>
+              <li class="list-group-item">Job Description: <%=listing.description%></li>
+            </ul>
+          </div>
+          <% if (listing.image) { %>
+            <img class="img-fluid w-50" src="<%= listing.image%>"/>
+          <% } else { %>
+            <img class="img-fluid w-50" src="/imgs/default-post-pic.jpg" alt="default post pic"/>
+          <% } %>
         </div>
       </div>
     </section>
