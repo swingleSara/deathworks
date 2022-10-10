@@ -25,7 +25,7 @@
       </div>
 
       <!-- Delete Listing Button -->
-      <%if(listing.user == user.id) { %>
+      <% if(listing.user == user.id) { %>
         <div class="row justify-content-between">
           <form action="/listing/deleteListing/<%=listing.id%>?_method=DELETE" method="POST" class="col-3">
             <button class="btn btn-secondary fa fa-trash" type="submit"></button>
