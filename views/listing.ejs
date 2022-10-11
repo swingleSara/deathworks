@@ -69,7 +69,13 @@
               <div id="question-<%=i%>" class="accordion-collapse collapse" data-bs-parent="#questions">
                 <div class="accordion-body">
                   <div>
-                    Asked by: <a href="/publicProfile/<%=questions[i].user%>" class="link-secondary"><%=seeker.name%></a>
+                    Asked by: <a href="/publicProfile/<%=questions[i].user%>" class="link-secondary">
+                      <% if (!seeker) { %>
+                        Unavailable
+                      <% } else { %>
+                      <%=seeker.name%>
+                      <% } %>
+                    </a>
                   </div>
                   <%if (questions[i].answer != undefined) { %>
                     <%=questions[i].answer%>

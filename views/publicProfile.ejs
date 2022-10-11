@@ -2,9 +2,12 @@
 
     <!-- Profile -->
     <section class="p-5 text-center">
+      <% if (!employer && !seeker) { %>
+        <!-- Default if profile hasn't been created yet-->
+        <p>This user's profile has not yet been created.  If this is your profile, please return to your profile home screen and create your profile by clicking on the profile dropwdown menu.</p>
 
       <!-- Employer -->
-      <% if (employer) { %>
+      <% } else if (employer) { %>
         <h1><%= employer.name %></h1>
         <div class="container bg-dark text-light mt-5">
           <div class="d-sm-flex p-5">
@@ -53,10 +56,9 @@
             </div>
           </div>
         <% } %>
-      <% } %>
 
       <!-- Seeker  -->
-      <% if (seeker) { %>
+      <% } else if (seeker) { %>
         <h1><%= seeker.name %></h1>
         <div class="container bg-dark text-light mt-5">
           <div class="d-sm-flex p-5">
