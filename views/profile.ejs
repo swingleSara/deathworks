@@ -16,7 +16,7 @@
     </div>
 
     <!-- My Listings -->
-    <% if (employer) { %>
+    <% if (status == "employer") { %>
       <section class="container mt-5">
         <div class="row">
           <% for(let i=0; i<(listings.length > 6 ? 6 : listings.length); i++) {%>
@@ -42,7 +42,7 @@
     <% } %>
 
     <!-- My Questions -->
-    <% if (seeker) { %>
+    <% if (status == "seeker") { %>
       <section class="container p-5">
         <h2 class="mt-5">My Questions: <% if (!questions) { %>
           No recent questions.
