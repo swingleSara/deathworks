@@ -16,4 +16,7 @@ module.exports = {
       console.log(err);
     }
   },
+  getContact: (req, res) => {
+    res.render("contact.ejs");
+  },
 };

@@ -1,11 +1,31 @@
+    <!-- Contact Modal -->
+      <div class="modal fade" id="contact" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="contactLabel">Send Email</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <%- include("../modals/contact") -%>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 <!-- Footer -->
     <footer class="mt-5 p-5 bg-dark text-white text-center position-relative">
       <div class="container">
-        <p class="lead">Copyright &copy; 2022 Sara Swingle</p>
+        <p class="lead">Copyright &copy; 2022 <a href="#" data-bs-toggle="modal" data-bs-target="#contact">Sara Swingle</a></p>
         <a href="#" class="link-secondary position-absolute bottom-0 end-0 p-5">
           <p class="h1">&uArr;</p>
         </a>
       </div>
+
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
