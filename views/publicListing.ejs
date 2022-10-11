@@ -6,7 +6,7 @@
       <span>Posted by: <a href="/publicProfile/<%=listing.user%>" class="link-secondary"><%=employer.name%></a></span>
       <div class="container bg-dark text-light mt-5">
         <div class="d-sm-flex p-5">
-          <div class="w-50">
+          <div class="w-50 p-5 border border-bottom-0 border-white rounded-top">
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Company: <%=listing.company%></li>
               <li class="list-group-item">Location: <%=listing.city%>, <%=listing.state%></li>
@@ -15,11 +15,13 @@
               <li class="list-group-item">Job Description: <%=listing.description%></li>
             </ul>
           </div>
-          <% if (listing.image) { %>
-            <img class="img-fluid w-50" src="<%= listing.image%>"/>
-          <% } else { %>
-            <img class="img-fluid w-50" src="/imgs/default-post-pic.jpg" alt="default post pic"/>
-          <% } %>
+          <div class="w-50 p-5 border border-bottom-0 border-white rounded-top">
+            <% if (listing.image) { %>
+              <img class="img-fluid w-50" src="<%= listing.image%>"/>
+            <% } else { %>
+              <img class="img-fluid w-50" src="/imgs/default-post-pic.jpg" alt="default post pic"/>
+            <% } %>
+          </div>
         </div>
       </div>
     </section>
