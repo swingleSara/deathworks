@@ -55,8 +55,8 @@ module.exports = {
   getEditSeeker: async (req, res) => {
     try {
       const listings = await Listing.find().sort({ createdAt: "desc" }).lean();
-      const employer = await Employer.find({ user: req.user.id });
-      const seeker = await Seeker.find({ user: req.user.id });
+      const employer = await Employer.find({ user: req.user._id });
+      const seeker = await Seeker.find({ user: req.user._id });
       res.render("editSeeker.ejs", { 
         listings: listings,
         user: req.user,
@@ -83,7 +83,6 @@ module.exports = {
               city: req.body.city,
               state: req.body.state,
               bioBlurb: req.body.bioBlurb,
-              user: req.user.id,
             },
           }
         );
@@ -98,7 +97,6 @@ module.exports = {
               city: req.body.city,
               state: req.body.state,
               bioBlurb: req.body.bioBlurb,
-              user: req.user.id,
             },
           }
         );
