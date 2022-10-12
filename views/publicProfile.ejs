@@ -11,14 +11,14 @@
         <h1><%= employer.name %></h1>
         <div class="container bg-dark text-light mt-5">
           <div class="d-sm-flex p-5">
-            <div class="w-50 p-5 border border-bottom-0 border-white rounded-top">
+            <div class="p-5 border border-bottom-0 border-white rounded-top">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Company: <%= employer.companyName %></li>
                 <li class="list-group-item">Location: <%= employer.city %>, <%= employer.state %></li>
                 <li class="list-group-item">About The Company: <%= employer.bioBlurb %></li>
               </ul>
             </div>
-            <div class="w-50 p-5 border border-bottom-0 border-white rounded-top">
+            <div class="w-50 p-5 border border-bottom-0 border-white rounded-top d-none d-sm-flex justify-content-center">
               <% if (employer.image) { %>
                 <img class="img-fluid w-50" src="<%= employer.image %>" />
                 <% } else { %>
@@ -62,13 +62,13 @@
         <h1><%= seeker.name %></h1>
         <div class="container bg-dark text-light mt-5">
           <div class="d-sm-flex p-5">
-            <div class="w-50 border border-bottom-0 border-white rounded-top">
+            <div class="border border-bottom-0 border-white rounded-top">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Location: <%= seeker.city %>, <%= seeker.state %></li>
                 <li class="list-group-item">About Me: <%= seeker.bioBlurb %></li>
               </ul>
             </div>
-            <div class="w-50 border border-bottom-0 border-white rounded-top">
+            <div class="w-50 border border-bottom-0 border-white rounded-top d-none d-sm-flex justify-content-center">
               <% if (seeker.image) { %>
                 <img class="img-fluid w-50" src="<%= seeker.image %>" />
               <% } else { %>
