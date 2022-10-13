@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <section class="mt-5">
       <h2>Edit Seeker Profile</h2>
-      <form action="/seeker/editSeeker/<%=seeker[0]._id%>?_method=PUT" enctype="multipart/form-data" method="POST">
+      <form action="/seeker/editSeeker/<%=seeker.id%>?_method=PUT" enctype="multipart/form-data" method="POST">
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
           <input type="text" class="form-control" id="name" name="name" value="<%=seeker.name%>" required/>

@@ -16,7 +16,7 @@
     </div>
 
     <!-- My Listings -->
-    <% if (status == "employer") { %>
+    <% if (status === "employer") { %>
       <section class="container mt-5">
         <div class="row">
           <% for(let i=0; i<(listings.length > 6 ? 6 : listings.length); i++) {%>
@@ -42,7 +42,7 @@
     <% } %>
 
     <!-- My Questions -->
-    <% if (status == "seeker") { %>
+    <% if (status === "seeker") { %>
       <section class="container p-5">
         <h2 class="mt-5">My Questions: <% if (!questions) { %>
           No recent questions.
@@ -81,80 +81,90 @@
       </section>
     <% } %>
 
-    <!-- Create Listing Modal -->
-    <div class="modal fade" id="createListing" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Create Listing</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <%- include("modals/createListing") -%>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Modals -->
+    
+      <!-- Employer Modals -->
+      <% if (status === "employer") { %>
 
-    <!-- Create Employer Profile Modal -->
-    <div class="modal fade" id="createEmployer" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Create Employer Profile</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <%- include("modals/createEmployer") -%>
+        <!-- Create Listing Modal -->
+        <div class="modal fade" id="createListing" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Create Listing</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <%- include("modals/createListing") -%>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Edit Employer Profile Modal -->
-    <div class="modal fade" id="editEmployer" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Edit Employer Profile</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <%- include("modals/editEmployer") -%>
+        <!-- Create Employer Profile Modal -->
+        <div class="modal fade" id="createEmployer" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Create Employer Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <%- include("modals/createEmployer") -%>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Create Seeker Profile Modal -->
-    <div class="modal fade" id="createSeeker" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Create Seeker Profile</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <%- include("modals/createSeeker") -%>
+        <!-- Edit Employer Profile Modal -->
+        <div class="modal fade" id="editEmployer" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Edit Employer Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <%- include("modals/editEmployer") -%>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      <% } %>
 
-    <!-- Edit Seeker Profile Modal -->
-    <div class="modal fade" id="editSeeker" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Edit Seeker Profile</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <%- include("modals/editSeeker") -%>
+    <!-- Seeker Modals -->
+      <% if (status === "seeker") { %>
+
+        <!-- Create Seeker Profile Modal -->
+        <div class="modal fade" id="createSeeker" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Create Seeker Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <%- include("modals/createSeeker") -%>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+
+        <!-- Edit Seeker Profile Modal -->
+        <div class="modal fade" id="editSeeker" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Edit Seeker Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <%- include("modals/editSeeker") -%>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% } %>
 
     <!-- Pop-up modal if profile hasn't been created yet, when working -->
     <!-- <script type="text/javascript">

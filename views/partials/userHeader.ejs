@@ -43,7 +43,7 @@
                   </li>
 
                   <!-- Create Employer Modal Link -->
-                  <% if (status === "employer" && !employer.length) { %>
+                  <% if (status === "employer" && !employer) { %>
                     <li>
                       <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createEmployer">Create Employer Profile</a>
                     </li>
@@ -56,7 +56,7 @@
                   <% } %>
 
                   <!-- Create Seeker Modal Link -->
-                  <% if (status === "seeker" && !seeker.length) { %>
+                  <% if (status === "seeker" && !seeker) { %>
                     <li>
                       <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createSeeker">Create Seeker Profile</a>
                     </li>
