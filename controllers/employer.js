@@ -7,8 +7,8 @@ module.exports = {
   getCreateEmployer: async (req, res) => {
     try {
       const listings = await Listing.find().sort({ createdAt: "desc" }).lean();
-      const employer = await Employer.find({ user: req.user.id });
-      const seeker = await Seeker.find({ user: req.user.id });
+      const employer = await Employer.findOne({ user: req.user.id });
+      const seeker = await Seeker.findOne({ user: req.user.id });
       res.render("createEmployer.ejs", { 
         listings: listings,
         user: req.user,
@@ -57,8 +57,8 @@ module.exports = {
   getEditEmployer: async (req, res) => {
     try {
       const listings = await Listing.find().sort({ createdAt: "desc" }).lean();
-      const employer = await Employer.find({ user: req.user.id });
-      const seeker = await Seeker.find({ user: req.user.id });
+      const employer = await Employer.findOne({ user: req.user.id });
+      const seeker = await Seeker.findOne({ user: req.user.id });
       res.render("editEmployer.ejs", { 
         listings: listings,
         user: req.user,
