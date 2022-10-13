@@ -19,7 +19,7 @@
 
   <!-- Body -->
   <body>
-    
+    <%console.log(JSON.stringify(seeker))%>
     <!-- Header -->
     <header>
       <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -43,29 +43,33 @@
                   </li>
 
                   <!-- Create Employer Modal Link -->
-                  <% if (status === "employer" && !employer) { %>
-                    <li>
-                      <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createEmployer">Create Employer Profile</a>
-                    </li>
+                  <% if (status === "employer") { %>
+                    <% if (JSON.stringify(employer) === "null") { %>
+                      <li>
+                        <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createEmployer">Create Employer Profile</a>
+                      </li>
 
-                  <!-- Edit Employer Modal Link -->
-                  <% } else if (status === "employer") { %>
-                    <li>
-                      <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editEmployer">Edit Employer Profile</a>
-                    </li>
+                    <!-- Edit Employer Modal Link -->
+                    <% } else { %>
+                      <li>
+                        <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editEmployer">Edit Employer Profile</a>
+                      </li>
+                    <% } %>
                   <% } %>
 
+                  <% if (status === "seeker") { %>
                   <!-- Create Seeker Modal Link -->
-                  <% if (status === "seeker" && !seeker) { %>
-                    <li>
-                      <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createSeeker">Create Seeker Profile</a>
-                    </li>
+                    <% if (JSON.stringify(seeker) === "null") { %>
+                      <li>
+                        <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createSeeker">Create Seeker Profile</a>
+                      </li>
 
-                  <!-- Edit Seeker Modal Link -->
-                  <% } else if (status === "seeker") { %>
-                    <li>
-                      <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editSeeker">Edit Seeker Profile</a>
-                    </li>
+                    <!-- Edit Seeker Modal Link -->
+                    <% } else { %>
+                      <li>
+                        <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editSeeker">Edit Seeker Profile</a>
+                      </li>
+                    <% } %>
                   <% } %>
 
                 </ul>
