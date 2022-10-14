@@ -41,43 +41,41 @@
       </section>
     <% } %>
 
-    <!-- My Questions -->
+    <!-- My Questions Accordian-->
     <% if (status === "seeker") { %>
-      <section class="container p-5">
-        <h2 class="mt-5">My Questions: <% if (!questions) { %>
-          No recent questions.
-        </h2>
-        <% } else { %>              
-          <section id="questions" class="p-5">
-            <div class="container">
-              <div class="accordion accordion-flush" id="questions">
-                <% for(let i=0; i<questions.length; i++) {%>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-<%=i%>">
-                        <div><%=questions[i].question%></div>
-                      </button>
-                    </h2>
-                    <div id="question-<%=i%>" class="accordion-collapse collapse" data-bs-parent="#questions">
-                      <div class="accordion-body">
-                        <div>
-                          Asked on: <a href="/publicListing/<%= questions[i].listing%>" class="link-secondary">
-                            <%=allListings.filter((elem,ind,arr) => elem._id == `${questions[i].listing}`)[0].title%>
-                          </a>
-                        </div>
-                        <%if (questions[i].answer != undefined){ %>
-                          <%=questions[i].answer%>
-                        <%} else {%>
-                          This question has not been answered yet.
-                        <% } %>
+      <section id="questions" class="p-5">
+        <div class="container">
+          <h2 class="text-center mb-4">My Questions: <% if (!questions) { %>
+              No recent questions.
+          <% } else { %>
+            </h2>              
+            <div class="accordion accordion-flush" id="questions">
+              <% for(let i=0; i<questions.length; i++) {%>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-<%=i%>">
+                      <div><%=questions[i].question%></div>
+                    </button>
+                  </h2>
+                  <div id="question-<%=i%>" class="accordion-collapse collapse" data-bs-parent="#questions">
+                    <div class="accordion-body">
+                      <div>
+                        Asked on: <a href="/publicListing/<%= questions[i].listing%>" class="link-secondary">
+                          <%=allListings.filter((elem,ind,arr) => elem._id == `${questions[i].listing}`)[0].title%>
+                        </a>
                       </div>
+                      <%if (questions[i].answer != undefined){ %>
+                        <%=questions[i].answer%>
+                      <%} else {%>
+                        This question has not been answered yet.
+                      <% } %>
                     </div>
                   </div>
-                <% } %>
-              </div>
+                </div>
+              <% } %>
             </div>
-          </section>
-        <% } %>
+          <% } %>
+        </div>
       </section>
     <% } %>
 
