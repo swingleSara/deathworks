@@ -1,29 +1,35 @@
 <%- include("partials/header") -%>
 
-    <!-- Listing -->
     <section class="p-5 text-center">
       <h1><%=listing.title%></h1>
       <span>Posted by: <a href="/publicProfile/<%=listing.user%>" class="link-secondary"><%=employer.name%></a></span>
-      <div class="container bg-dark text-light mt-5">
-        <div class="d-sm-flex p-5">
-          <div class="p-5 border border-bottom-0 border-white rounded-top">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Company: <%=listing.company%></li>
-              <li class="list-group-item">Location: <%=listing.city%>, <%=listing.state%></li>
-              <li class="list-group-item">Telephone: <%=listing.number%></li>
-              <li class="list-group-item">Business Site: <%=listing.site%></li>
-              <li class="list-group-item">Job Description: <%=listing.description%></li>
-            </ul>
+      <div class="container bg-dark pt-3">
+        <div class="row">
+          <div class="col-md w-50 p-5">
+            <div class="card bg-secondary border border-bottom-0 border-white text-light">
+              <div class="card-body p-5 text-center">
+                <% if (listing.image) { %>
+                  <img class="img-fluid card-img-top" src="<%= listing.image%>"/>
+                <% } else { %>
+                  <img class="img-fluid card-img-top" src="/imgs/default-post-pic.jpg" alt="default post pic"/>
+                <% } %>
+              </div>
+            </div>
           </div>
-          <div class="w-50 p-5 border border-bottom-0 border-white rounded-top d-none d-sm-flex justify-content-center">
-            <% if (listing.image) { %>
-              <img class="img-fluid w-50" src="<%= listing.image%>"/>
-            <% } else { %>
-              <img class="img-fluid w-50" src="/imgs/default-post-pic.jpg" alt="default post pic"/>
-            <% } %>
+          <div class="col-md w-50 p-5">
+            <div class="card bg-secondary border border-bottom-0 border-white text-light">
+              <div class="card-body p-5 text-center">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Company: <%=listing.company%></li>
+                  <li class="list-group-item">Location: <%=listing.city%>, <%=listing.state%></li>
+                  <li class="list-group-item">Telephone: <%=listing.number%></li>
+                  <li class="list-group-item">Business Site: <%=listing.site%></li>
+                  <li class="list-group-item">Job Description: <%=listing.description%></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="bg-success"></div>
       </div>
 
       <!-- Delete Listing Button -->
@@ -34,6 +40,7 @@
           </form>
         </div>
       <% } %>
+      
     </section>
 
       <!-- Ask A Question -->
