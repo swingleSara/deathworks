@@ -12,11 +12,11 @@
     <% if (employer) { %>
       <section class="p-5 text-center">
         <h1><%= employer.name %></h1>
-        <div class="container bg-dark pt-3 mt-3">
-          <div class="row h-100 d-sm-flex d-block">
-            <div class="col-md p-5">
-              <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
-                <div class="card-body p-5 text-center">
+        <div class="container bg-dark mt-3">
+          <div class="row p-auto h-100 d-sm-flex d-block">
+            <div class="col-md py-3">
+              <div class="card p-auto h-100 bg-secondary border border-bottom-0 border-white text-light">
+                <div class="card-body p-auto text-center">
                   <% if (employer.image) { %>
                     <img class="img-fluid card-img-top" src="<%= employer.image %>" />
                   <% } else { %>
@@ -25,9 +25,9 @@
                 </div>
               </div>
             </div>
-            <div class="col-md p-5">
-              <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
-                <div class="card-body p-5 text-center">
+            <div class="col-md py-3">
+              <div class="card p-auto h-100 bg-secondary border border-bottom-0 border-white text-light">
+                <div class="card-body p-auto text-center">
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">Company: <%= employer.companyName %></li>
                     <li class="list-group-item">Location: <%= employer.city %>, <%= employer.state %></li>
@@ -73,11 +73,11 @@
     <% } else if (seeker) { %>
       <section class="p-5 text-center">
         <h1><%= seeker.name %></h1>
-        <div class="container bg-dark pt-3 mt-3">
-          <div class="row h-100 d-sm-flex d-block">
-            <div class="col-md p-5">
-              <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
-                <div class="card-body p-5 text-center">
+        <div class="container bg-dark mt-3">
+          <div class="row p-auto h-100 d-sm-flex d-block">
+            <div class="col-md py-3">
+              <div class="card p-auto h-100 bg-secondary border border-bottom-0 border-white text-light">
+                <div class="card-body p-auto text-center">
                   <% if (seeker.image) { %>
                     <img class="img-fluid card-img-top" src="<%= seeker.image %>"/>
                   <% } else { %>
@@ -86,9 +86,9 @@
                 </div>
               </div>
             </div>
-            <div class="col-md p-5">
-              <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
-                <div class="card-body p-5 text-center">
+            <div class="col-md py-3">
+              <div class="card p-auto h-100 bg-secondary border border-bottom-0 border-white text-light">
+                <div class="card-body p-auto text-center">
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">Location: <%= seeker.city %>, <%= seeker.state %></li>
                     <li class="list-group-item">About Me: <%= seeker.bioBlurb %></li>

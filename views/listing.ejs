@@ -4,11 +4,11 @@
     <section class="p-5 text-center">
       <h1><%=listing.title%></h1>
       <span>Posted by: <a href="/publicProfile/<%=listing.user%>" class="link-secondary"><%=employer.name%></a></span>
-      <div class="container bg-dark pt-3 mt-3">
-        <div class="row h-100 d-sm-flex d-block">
-          <div class="col-md p-5">
-            <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
-              <div class="card-body p-5 text-center">
+      <div class="container bg-dark mt-3">
+        <div class="row p-auto h-100 d-sm-flex d-block">
+          <div class="col-md py-3">
+            <div class="card p-auto h-100 bg-secondary border border-bottom-0 border-white text-light">
+              <div class="card-body p-auto text-center">
                 <% if (listing.image) { %>
                   <img class="img-fluid card-img-top" src="<%= listing.image%>"/>
                 <% } else { %>
@@ -17,9 +17,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md p-5">
-            <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
-              <div class="card-body p-5 text-center">
+          <div class="col-md py-3">
+            <div class="card p-auto h-100 bg-secondary border border-bottom-0 border-white text-light">
+              <div class="card-body p-auto text-center">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">Company: <%=listing.company%></li>
                   <li class="list-group-item">Location: <%=listing.city%>, <%=listing.state%></li>
