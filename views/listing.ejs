@@ -5,8 +5,8 @@
       <h1><%=listing.title%></h1>
       <span>Posted by: <a href="/publicProfile/<%=listing.user%>" class="link-secondary"><%=employer.name%></a></span>
       <div class="container bg-dark pt-3 mt-3">
-        <div class="row h-100">
-          <div class="col-md w-50 p-5">
+        <div class="row h-100 d-sm-flex d-block">
+          <div class="col-md p-5">
             <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
               <div class="card-body p-5 text-center">
                 <% if (listing.image) { %>
@@ -17,7 +17,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md w-50 p-5">
+          <div class="col-md p-5">
             <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
               <div class="card-body p-5 text-center">
                 <ul class="list-group list-group-flush">

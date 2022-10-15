@@ -5,137 +5,137 @@
       <% if (!employer && !seeker) { %>
         <!-- Default if profile hasn't been created yet-->
         <p>This user's profile has not yet been created.  If this is your profile, please return to your profile home screen and create your profile by clicking on the profile dropwdown menu.</p>
+      <% } %>
+    </section>
 
-      <!-- Employer -->
-      <% } else if (employer) { %>
-        <section class="p-5 text-center">
-          <h1><%= employer.name %></h1>
-          <div class="container bg-dark pt-3 mt-3">
-            <div class="row h-100">
-              <div class="col-md w-50 p-5">
-                <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
-                  <div class="card-body p-5 text-center">
-                    <% if (employer.image) { %>
-                      <img class="img-fluid card-img-top" src="<%= employer.image %>" />
-                    <% } else { %>
-                      <img class="img-fluid card-img-top" src="/imgs/default-profile-pic.jpg" alt="default profile pic"/>
-                    <% } %>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md w-50 p-5">
-                <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
-                  <div class="card-body p-5 text-center">
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">Company: <%= employer.companyName %></li>
-                      <li class="list-group-item">Location: <%= employer.city %>, <%= employer.state %></li>
-                      <li class="list-group-item">About The Company: <%= employer.bioBlurb %></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Listings -->
-          <h2 class="mt-5">Recent Listings: <% if (!listings) { %>
-            No recent listings.
-          </h2>
-          <% } else { %>              
-            <div class="container mt-3">
-              <div class="row">
-                <% for(let i=0; i<(listings.length < 6 ? listings.length : 6); i++) {%>
-                  <div class="col-md card g-2">
-                    <a href="/publicListing/<%= listings[i]._id%>" class="link-secondary">
-                      <% if (!listings[i].image) { %>
-                        <div>
-                          <img class="img-fluid card-img-top" src="/imgs/default-post-pic.jpg" alt="default post pic">
-                        </div>
-                      <% } else { %>
-                        <div>
-                          <img class="img-fluid card-img-top" src="<%= listings[i].image%>">
-                        </div>
-                      <% } %>
-                      <div class="card-body">
-                        <h5 class="card-title text-center"><%= listings[i].title %></h5>
-                      </div>
-                    </a>
-                  </div>
-                <% } %>
-              </div>
-            </div>
-          <% } %>
-        </section>
-
-      <!-- Seeker  -->
-      <% } else if (seeker) { %>
-        <section class="p-5 text-center">
-          <h1><%= seeker.name %></h1>
-          <div class="container bg-dark pt-3 mt-3">
-            <div class="row h-100">
-              <div class="col-md w-50 p-5">
-                <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
-                  <div class="card-body p-5 text-center">
-                    <% if (seeker.image) { %>
-                      <img class="img-fluid card-img-top" src="<%= seeker.image %>"/>
-                    <% } else { %>
-                      <img class="img-fluid card-img-top" src="/imgs/default-profile-pic.jpg" alt="default profile pic"/>
-                    <% } %>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md w-50 p-5">
-                <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
-                  <div class="card-body p-5 text-center">
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">Location: <%= seeker.city %>, <%= seeker.state %></li>
-                      <li class="list-group-item">About Me: <%= seeker.bioBlurb %></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        <!-- Questions -->
-        <h2 class="mt-5">Recent Questions: 
-          <% if (!questions) { %>
-            No recent questions.
-            </h2>
-          <% } else { %>              
-            <section id="questions" class="p-5">
-              <div class="container">
-                <div class="accordion accordion-flush" id="questions">
-                  <% for(let i=0; i<(questions.length < 6 ? questions.length : 6); i++) {%>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-<%=i%>">
-                          <div><%=questions[i].question%></div>
-                        </button>
-                      </h2>
-                      <div id="question-<%=i%>" class="accordion-collapse collapse" data-bs-parent="#questions">
-                        <div class="accordion-body">
-                          <div>
-                            Asked on: <a href="/publicListing/<%= questions[i].listing%>" class="link-secondary">
-                              <%=allListings.filter((elem,ind,arr) => elem._id == `${questions[i].listing}`)[0].title%>
-                            </a>
-                          </div>
-                          <%if (questions[i].answer != undefined){ %>
-                            <%=questions[i].answer%>
-                          <%} else {%>
-                            This question has not been answered yet.
-                          <% } %>
-                        </div>
-                      </div>
-                    </div>
+    <!-- Employer -->
+    <% if (employer) { %>
+      <section class="p-5 text-center">
+        <h1><%= employer.name %></h1>
+        <div class="container bg-dark pt-3 mt-3">
+          <div class="row h-100 d-sm-flex d-block">
+            <div class="col-md p-5">
+              <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
+                <div class="card-body p-5 text-center">
+                  <% if (employer.image) { %>
+                    <img class="img-fluid card-img-top" src="<%= employer.image %>" />
+                  <% } else { %>
+                    <img class="img-fluid card-img-top" src="/imgs/default-profile-pic.jpg" alt="default profile pic"/>
                   <% } %>
                 </div>
               </div>
-            </section>
+            </div>
+            <div class="col-md p-5">
+              <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
+                <div class="card-body p-5 text-center">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Company: <%= employer.companyName %></li>
+                    <li class="list-group-item">Location: <%= employer.city %>, <%= employer.state %></li>
+                    <li class="list-group-item">About The Company: <%= employer.bioBlurb %></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Listings -->
+        <h2 class="mt-5">Recent Listings: <% if (!listings) { %>
+          No recent listings.
+        </h2>
+        <% } else { %>              
+          <div class="container mt-3">
+            <div class="row">
+              <% for(let i=0; i<(listings.length < 6 ? listings.length : 6); i++) {%>
+                <div class="col-md card g-2">
+                  <a href="/publicListing/<%= listings[i]._id%>" class="link-secondary">
+                    <% if (!listings[i].image) { %>
+                      <div>
+                        <img class="img-fluid card-img-top" src="/imgs/default-post-pic.jpg" alt="default post pic">
+                      </div>
+                    <% } else { %>
+                      <div>
+                        <img class="img-fluid card-img-top" src="<%= listings[i].image%>">
+                      </div>
+                    <% } %>
+                    <div class="card-body">
+                      <h5 class="card-title text-center"><%= listings[i].title %></h5>
+                    </div>
+                  </a>
+                </div>
+              <% } %>
+            </div>
+          </div>
+        <% } %>
+      </section>
+
+    <!-- Seeker  -->
+    <% } else if (seeker) { %>
+      <section class="p-5 text-center">
+        <h1><%= seeker.name %></h1>
+        <div class="container bg-dark pt-3 mt-3">
+          <div class="row h-100 d-sm-flex d-block">
+            <div class="col-md p-5">
+              <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
+                <div class="card-body p-5 text-center">
+                  <% if (seeker.image) { %>
+                    <img class="img-fluid card-img-top" src="<%= seeker.image %>"/>
+                  <% } else { %>
+                    <img class="img-fluid card-img-top" src="/imgs/default-profile-pic.jpg" alt="default profile pic"/>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md p-5">
+              <div class="card h-100 bg-secondary border border-bottom-0 border-white text-light">
+                <div class="card-body p-5 text-center">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Location: <%= seeker.city %>, <%= seeker.state %></li>
+                    <li class="list-group-item">About Me: <%= seeker.bioBlurb %></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Questions Accordian -->
+      <section id="questions" class="p-5">
+        <div class="container">
+          <h2 class="mt-5">Recent Questions: <% if (!questions) { %>
+            No recent questions.
+          <% } else { %>    
+            </h2>          
+            <div class="accordion accordion-flush" id="questions">
+              <% for(let i=0; i<(questions.length < 6 ? questions.length : 6); i++) {%>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-<%=i%>">
+                      <div><%=questions[i].question%></div>
+                    </button>
+                  </h2>
+                  <div id="question-<%=i%>" class="accordion-collapse collapse" data-bs-parent="#questions">
+                    <div class="accordion-body">
+                      <div>
+                        Asked on: <a href="/publicListing/<%= questions[i].listing%>" class="link-secondary">
+                          <%=allListings.filter((elem,ind,arr) => elem._id == `${questions[i].listing}`)[0].title%>
+                        </a>
+                      </div>
+                      <%if (questions[i].answer != undefined){ %>
+                        <%=questions[i].answer%>
+                      <%} else {%>
+                        This question has not been answered yet.
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+              <% } %>
+            </div>
           <% } %>
-        </section>
-      <% } %>
-    </section>
+        </div>
+      </section>
+    <% } %>
 
     <!-- Signup Modal -->
     <div class="modal fade" id="signup" tabindex="-1" aria-labelledby="signupLabel" aria-hidden="true">
