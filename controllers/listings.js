@@ -19,7 +19,7 @@ module.exports = {
         seeker: seeker
        });
     } catch (err) {
-      console.log(err);
+      res.redirect("/");
     }
   },
   getListing: async (req, res) => {
