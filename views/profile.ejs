@@ -85,21 +85,6 @@
       <% if (status === "employer") { %>
         <% if (JSON.stringify(employer) === "null") { %>
 
-          <!-- Create Listing Modal -->
-          <div class="modal fade" id="createListing" tabindex="-1">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Create Listing</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                  <%- include("modals/createListing") -%>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <!-- Create Employer Profile Modal -->
           <div class="modal fade" id="createEmployer" tabindex="-1">
             <div class="modal-dialog">
@@ -114,6 +99,7 @@
               </div>
             </div>
           </div>
+        <% } else { %>
 
           <!-- Edit Employer Profile Modal -->
           <div class="modal fade" id="editEmployer" tabindex="-1">
@@ -130,6 +116,21 @@
             </div>
           </div>
         <% } %>
+
+        <!-- Create Listing Modal -->
+        <div class="modal fade" id="createListing" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Create Listing</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <%- include("modals/createListing") -%>
+              </div>
+            </div>
+          </div>
+        </div>
       <% } %>
 
     <!-- Seeker Modals -->
@@ -150,6 +151,7 @@
             </div>
           </div>
         <% } else { %>
+          
           <!-- Edit Seeker Profile Modal -->
           <div class="modal fade" id="editSeeker" tabindex="-1">
             <div class="modal-dialog">
