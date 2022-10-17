@@ -37,6 +37,7 @@ module.exports = {
       res.render("publicProfile.ejs", {
         listings: listings,
         user: user,
+        status: req.user.status,
         questions: questions,
         employer: employer,
         seeker: seeker,

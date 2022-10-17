@@ -1,4 +1,8 @@
-<%- include("partials/publicHeader") -%>
+<% if (!user) { %> 
+  <%- include("partials/publicHeader") -%>
+<% } else { %>
+  <%- include("partials/userHeader") -%>
+<% } %>
 
     <!-- Listing -->
     <section class="p-5 text-center">
