@@ -103,15 +103,19 @@ module.exports = {
   },
   deleteListing: async (req, res) => {
     try {
-      // Find listing by id
-      let listing = await Listing.findById({ _id: req.params.id });
+
+      //Find listing by id and find associated questions
+      const listing = await Listing.findById({ _id: req.params.id });
+
       // Delete image from cloudinary
       if (listing.cloudinaryId) {
         await cloudinary.uploader.destroy(listing.cloudinaryId);
       }
-      // Delete listing from db
+
+      //Delete listing from database
       await Listing.remove({ _id: req.params.id });
-      console.log("Deleted listing");
+      await Question.remove({listing: req.params.id});
+      console.log("Deleted listing and associated questions");
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
