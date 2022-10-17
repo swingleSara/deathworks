@@ -51,7 +51,7 @@ module.exports = {
       res.render("publicListing.ejs", {
         listing: listing,
         user: user,
-        status: req.user.status,
+        status: req.user ? req.user.status : undefined,
         questions: questions,
         employer: employer,
         seeker: seeker,
