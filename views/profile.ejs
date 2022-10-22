@@ -39,9 +39,53 @@
           <% } %>
         </div>
       </section>
+
+      <!-- Employer Open Questions Accorian -->
+      <section id="listings" class="p-5">
+        <div class="container">
+          <h2 class="text-center mb-4">Open Questions: <% if (!questions) { %>
+              No open questions.
+          <% } else { %>
+            </h2>              
+            <div class="accordion accordion-flush" id="listings">
+              <% for(let i=0; i<listings.length; i++) {%>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#listing-<%=i%>">
+                      <div><%=listings[i].title%></div>
+                    </button>
+                  </h2>
+                  <div id="listing-<%=i%>" class="accordion-collapse collapse" data-bs-parent="#listings">
+                    <div class="accordion-body">
+                      <div>
+                        <% for(let j=0; j<allQuestions.filter((elem) => elem.listing == `${listings[i]._id}`).length; j++) { %> 
+                          <ul>
+                            <%if(!allQuestions.filter((elem) => elem.listing == `${listings[i]._id}`)[j].answer) { %>
+                              <li><%=allQuestions.filter((elem) => elem.listing == `${listings[i]._id}`)[j].question%></li>
+                              <h2>Answer the question</h2>
+                              <form action="/questions/addAnswer/<%=allQuestions.filter((elem) => elem.listing == `${listings[i]._id}`)[j]._id%>/<%=listings[i]._id%>?_method=PUT" method="POST">
+                                <label for="answer" class="form-label">Answer</label>
+                                <input type="text" class="form-control" id="answer" name="answer">
+                                <button type="submit" class="btn btn-secondary">Answer</button>
+                              </form>
+                            <% } else { %>
+                              There are currently no open questions for this listing.
+                              <% break; %>
+                            <% } %>
+                          </ul>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+          <% } %>
+        </div>
+      </section>
     <% } %>
 
-    <!-- My Questions Accordian-->
+    <!-- Seeker Questions Accordian-->
     <% if (status === "seeker") { %>
       <section id="questions" class="p-5">
         <div class="container">
@@ -61,7 +105,7 @@
                     <div class="accordion-body">
                       <div>
                         Asked on: <a href="/publicListing/<%= questions[i].listing%>" class="link-secondary">
-                          <%=allListings.filter((elem,ind,arr) => elem._id == `${questions[i].listing}`)[0].title%>
+                          <%=allListings.filter((elem) => elem._id == `${questions[i].listing}`)[0].title%>
                         </a>
                       </div>
                       <%if (questions[i].answer != undefined){ %>

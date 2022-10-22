@@ -8,10 +8,17 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const listings = await Listing.find({ user: req.user.id });
-      const questions = await Question.find({ user: req.user.id }).sort({ createdAt: "desc"}).lean();
+      const questions = await Question.find({ user: req.user.id })
+        .sort({ createdAt: "desc" })
+        .lean();
       const employer = await Employer.findOne({ user: req.user.id });
       const seeker = await Seeker.findOne({ user: req.user.id });
-      const allListings = await Listing.find().sort({ createdAt: "desc"}).lean();
+      const allListings = await Listing.find()
+        .sort({ createdAt: "desc" })
+        .lean();
+      const allQuestions = await Question.find()
+        .sort({ createdAt: "desc" })
+        .lean();
       res.render("profile.ejs", {
         listings: listings,
         questions: questions,
@@ -19,7 +26,8 @@ module.exports = {
         status: req.user.status,
         employer: employer,
         seeker: seeker,
-        allListings: allListings
+        allListings: allListings,
+        allQuestions: allQuestions,
       });
     } catch (err) {
       console.log(err);
@@ -27,12 +35,18 @@ module.exports = {
   },
   getPublicProfile: async (req, res) => {
     try {
-      const listings = await Listing.find({ user: req.params.id }).sort({ createdAt: "desc" }).lean();
+      const listings = await Listing.find({ user: req.params.id })
+        .sort({ createdAt: "desc" })
+        .lean();
       const employer = await Employer.findOne({ user: req.params.id });
       const seeker = await Seeker.findOne({ user: req.params.id });
       const user = await User.findById(req.user);
-      const questions = await Question.find({ user: req.params.id }).sort({ createdAt: "desc"}).lean();
-      const allListings = await Listing.find().sort({createdAt: "desc"}).lean();
+      const questions = await Question.find({ user: req.params.id })
+        .sort({ createdAt: "desc" })
+        .lean();
+      const allListings = await Listing.find()
+        .sort({ createdAt: "desc" })
+        .lean();
 
       res.render("publicProfile.ejs", {
         listings: listings,
