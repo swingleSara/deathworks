@@ -58,12 +58,13 @@
                   <div id="listing-<%=i%>" class="accordion-collapse collapse" data-bs-parent="#listings">
                     <div class="accordion-body">
                       <div>
-                        <% for(let j=0; j<allQuestions.filter((elem) => elem.listing == `${listings[i]._id}`).length; j++) { %> 
+                        <% const listingsIDFilter = allQuestions.filter((elem) => elem.listing == `${listings[i]._id}`); %>
+                        <% for(let j=0; j<listingsIDFilter.length; j++) { %> 
                           <ul>
-                            <%if(!allQuestions.filter((elem) => elem.listing == `${listings[i]._id}`)[j].answer) { %>
-                              <li><%=allQuestions.filter((elem) => elem.listing == `${listings[i]._id}`)[j].question%></li>
+                            <%if(!listingsIDFilter[j].answer) { %>
+                              <li><%=listingsIDFilter[j].question%></li>
                               <h2>Answer the question</h2>
-                              <form action="/questions/addAnswer/<%=allQuestions.filter((elem) => elem.listing == `${listings[i]._id}`)[j]._id%>/<%=listings[i]._id%>?_method=PUT" method="POST">
+                              <form action="/questions/addAnswer/<%=listingsIDFilter[j]._id%>/<%=listings[i]._id%>?_method=PUT" method="POST">
                                 <label for="answer" class="form-label">Answer</label>
                                 <input type="text" class="form-control" id="answer" name="answer">
                                 <button type="submit" class="btn btn-secondary">Answer</button>
