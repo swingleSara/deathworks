@@ -6,9 +6,8 @@ Tech Used: MongoDB, Express, Boostrap, and Node with multer and cloudinary for i
 
 This app is still under construction! I have plenty of to-dos but am currently working on adding accessibility features before adding search functionality.
 Some of these to-dos include:
-    -archiving listings without deleting them
-    -internal notifications such as new questions or answers to questions a user has asked
-    -employers being able to answer questions directly from their profile rather than on the    listing's page
+-internal notifications such as new questions or answers to questions a user has asked
+-viewing archived listings only
 
 # Install Dependencies
 
