@@ -39,13 +39,18 @@
 
       <!-- Delete Listing Button -->
       <% if(listing.user == user.id) { %>
-        <div class="row justify-content-between">
+        <div class="pt-3 d-flex justify-content-center">
+          <!-- Delete Listing Button -->
           <form action="/listing/deleteListing/<%=listing.id%>?_method=DELETE" method="POST" class="col-3">
             <button class="btn btn-secondary fa fa-trash" type="submit"></button>
           </form>
+
+          <!-- Archive Listing Button -->
+          <form action="/listing/archiveListing/<%=listing.id%>?_method=PUT" method="POST" class="col-3">
+            <button class="btn btn-secondary fa fa-archive" type="submit"></button>
+          </form>
         </div>
       <% } %>
-      
     </section>
 
       <!-- Ask A Question -->

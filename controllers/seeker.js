@@ -6,10 +6,15 @@ const Listing = require("../models/Listing");
 module.exports = {
   getCreateSeeker: async (req, res) => {
     try {
-      const listings = await Listing.find().sort({ createdAt: "desc" }).lean();
+      const listings = await Listing.find({
+        user: req.user.id,
+        archive: { $ne: true },
+      })
+        .sort({ createdAt: "desc" })
+        .lean();
       const employer = await Employer.findOne({ user: req.user.id });
       const seeker = await Seeker.findOne({ user: req.user.id });
-      res.render("createSeeker.ejs", { 
+      res.render("createSeeker.ejs", {
         listings: listings,
         user: req.user,
         status: req.user.status,
@@ -54,10 +59,15 @@ module.exports = {
   },
   getEditSeeker: async (req, res) => {
     try {
-      const listings = await Listing.find().sort({ createdAt: "desc" }).lean();
+      const listings = await Listing.find({
+        user: req.user.id,
+        archive: { $ne: true },
+      })
+        .sort({ createdAt: "desc" })
+        .lean();
       const employer = await Employer.findOne({ user: req.user.id });
       const seeker = await Seeker.findOne({ user: req.user.id });
-      res.render("editSeeker.ejs", { 
+      res.render("editSeeker.ejs", {
         listings: listings,
         user: req.user,
         status: req.user.status,

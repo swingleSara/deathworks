@@ -9,7 +9,12 @@ router.get("/", listingsController.getFeed);
 module.exports = {
   getIndex: async (req, res) => {
     try {
-      const listings = await Listing.find().sort({ createdAt: "desc" }).lean();
+      const listings = await Listing.find({
+        user: req.user.id,
+        archive: { $ne: true },
+      })
+        .sort({ createdAt: "desc" })
+        .lean();
       const user = await User.findById(req.user);
       res.render("index.ejs", { listings: listings, user: user });
     } catch (err) {

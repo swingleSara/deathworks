@@ -7,7 +7,12 @@ const User = require("../models/User");
 module.exports = {
   getProfile: async (req, res) => {
     try {
-      const listings = await Listing.find({ user: req.user.id });
+      const listings = await Listing.find({
+        user: req.user.id,
+        archive: { $ne: true },
+      })
+        .sort({ createdAt: "desc" })
+        .lean();
       const questions = await Question.find({ user: req.user.id })
         .sort({ createdAt: "desc" })
         .lean();
@@ -35,7 +40,10 @@ module.exports = {
   },
   getPublicProfile: async (req, res) => {
     try {
-      const listings = await Listing.find({ user: req.params.id })
+      const listings = await Listing.find({
+        user: req.user.id,
+        archive: { $ne: true },
+      })
         .sort({ createdAt: "desc" })
         .lean();
       const employer = await Employer.findOne({ user: req.params.id });

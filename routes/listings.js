@@ -12,5 +12,10 @@ router.post(
   listingsController.createListing
 );
 router.delete("/deleteListing/:id", listingsController.deleteListing);
+router.put(
+  "/archiveListing/:id",
+  upload.single("file"),
+  listingsController.archiveListing
+);
 
 module.exports = router;

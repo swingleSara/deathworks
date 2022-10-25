@@ -8,16 +8,18 @@ const User = require("../models/User");
 module.exports = {
   getFeed: async (req, res) => {
     try {
-      const listings = await Listing.find().sort({ createdAt: "desc" }).lean();
+      const listings = await Listing.find({ archive: { $ne: true } })
+        .sort({ createdAt: "desc" })
+        .lean();
       const employer = await Employer.findOne({ employer: req.body.user });
       const seeker = await Seeker.findOne({ seeker: req.body.user });
-      res.render("feed.ejs", { 
+      res.render("feed.ejs", {
         user: req.user,
         status: req.user.status,
         listings: listings,
         employer: employer,
-        seeker: seeker
-       });
+        seeker: seeker,
+      });
     } catch (err) {
       res.redirect("/");
     }
@@ -28,7 +30,9 @@ module.exports = {
       const employer = await Employer.findOne({ employer: req.body.user });
       const seeker = await Seeker.findOne({ seeker: req.body.user });
       const user = await User.findById(req.user);
-      const questions = await Question.find({ listing: req.params.id }).sort({ createdAt: "desc" }).lean();
+      const questions = await Question.find({ listing: req.params.id })
+        .sort({ createdAt: "desc" })
+        .lean();
       res.render("listing.ejs", {
         listing: listing,
         user: user,
@@ -47,7 +51,9 @@ module.exports = {
       const employer = await Employer.findOne({ employer: req.body.user });
       const seeker = await Seeker.findOne({ seeker: req.body.user });
       const user = await User.findById(req.user);
-      const questions = await Question.find({ listing: req.params.id }).sort({ createdAt: "desc" }).lean();
+      const questions = await Question.find({ listing: req.params.id })
+        .sort({ createdAt: "desc" })
+        .lean();
       res.render("publicListing.ejs", {
         listing: listing,
         user: user,
@@ -103,7 +109,6 @@ module.exports = {
   },
   deleteListing: async (req, res) => {
     try {
-
       //Find listing by id and find associated questions
       const listing = await Listing.findById({ _id: req.params.id });
 
@@ -114,8 +119,24 @@ module.exports = {
 
       //Delete listing from database
       await Listing.remove({ _id: req.params.id });
-      await Question.remove({listing: req.params.id});
+      await Question.remove({ listing: req.params.id });
       console.log("Deleted listing and associated questions");
+      res.redirect("/profile");
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  archiveListing: async (req, res) => {
+    try {
+      await Listing.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          $set: {
+            archive: true,
+          },
+        }
+      );
+      console.log("Archived listing.");
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
