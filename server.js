@@ -7,6 +7,8 @@ const MongoStore = require("connect-mongo")(session);
 const methodOverride = require("method-override");
 const flash = require("express-flash");
 const logger = require("morgan");
+
+//Routes
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const listingRoutes = require("./routes/listings");
@@ -42,7 +44,7 @@ app.use(logger("dev"));
 //Use forms for put / delete
 app.use(methodOverride("_method"));
 
-//Setup Sessions - stored in MongoDB
+//Setup Sessions - Stored In MongoDB
 app.use(
   session({
     secret: "keyboard cat",
