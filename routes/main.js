@@ -12,6 +12,7 @@ router.get("/", homeController.getIndex);
 router.get("/profile", ensureAuth, profileController.getProfile);
 router.get("/publicProfile/:id", profileController.getPublicProfile);
 router.get("/feed", listingsController.getFeed);
+router.get("/archivedFeed", listingsController.getArchivedFeed);
 router.get("/createListing", listingsController.getCreateListing);
 router.get("/publicListing/:id", listingsController.getPublicListing);
 router.get("/createEmployer", employerController.getCreateEmployer);

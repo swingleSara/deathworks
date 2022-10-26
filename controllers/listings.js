@@ -24,6 +24,24 @@ module.exports = {
       res.redirect("/");
     }
   },
+  getArchivedFeed: async (req, res) => {
+    try {
+      const listings = await Listing.find({ archive: true })
+        .sort({ createdAt: "desc" })
+        .lean();
+      const employer = await Employer.findOne({ employer: req.body.user });
+      const seeker = await Seeker.findOne({ seeker: req.body.user });
+      res.render("archivedFeed.ejs", {
+        user: req.user,
+        status: req.user.status,
+        listings: listings,
+        employer: employer,
+        seeker: seeker,
+      });
+    } catch (err) {
+      res.redirect("/");
+    }
+  },
   getListing: async (req, res) => {
     try {
       const listing = await Listing.findById(req.params.id);
