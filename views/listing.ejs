@@ -7,6 +7,9 @@
     <!-- Listing -->
     <section class="p-5 text-center">
       <h1><%=listing.title%></h1>
+      <% if(listing.archive == true) { %>
+        <h2>This listing has been archived.</h2>
+      <% } %>
       <span>Posted by: <a href="/publicProfile/<%=listing.user%>" class="link-secondary"><%=employer.name%></a></span>
       <div class="container bg-dark mt-3">
         <div class="row p-auto h-100 d-sm-flex d-block">
@@ -58,7 +61,7 @@
       <!-- Ask A Question -->
       <section class="container">
         <div class="mt-5">
-          <%if(listing.user != user.id){ %>
+          <%if(listing.user != user.id && listing.archive == false){ %>
             <h2>Ask a question</h2>
             <form action="/questions/createQuestion/<%=listing.id%>" method="POST">
               <div class="mb-3">
