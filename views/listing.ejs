@@ -46,9 +46,11 @@
           </form>
 
           <!-- Archive Listing Button -->
-          <form action="/listing/archiveListing/<%=listing.id%>?_method=PUT" method="POST" class="col-3">
-            <button class="btn btn-secondary fa fa-archive" type="submit"></button>
-          </form>
+          <% if(listing.archive == false) { %>
+            <form action="/listing/archiveListing/<%=listing.id%>?_method=PUT" method="POST" class="col-3">
+              <button class="btn btn-secondary fa fa-archive" type="submit"></button>
+            </form>
+          <% } %>
         </div>
       <% } %>
     </section>
