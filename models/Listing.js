@@ -26,7 +26,7 @@ const ListingSchema = new mongoose.Schema({
     required: true,
   },
   number: {
-    type: Array,
+    type: String,
     required: true,
   },
   site: {
@@ -34,7 +34,7 @@ const ListingSchema = new mongoose.Schema({
     required: false,
   },
   description: {
-    type: Array,
+    type: String,
     required: true,
   },
   user: {
