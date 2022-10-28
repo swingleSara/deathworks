@@ -41,7 +41,6 @@ module.exports = {
   getPublicProfile: async (req, res) => {
     try {
       const listings = await Listing.find({
-        user: req.user.id,
         archive: { $ne: true },
       })
         .sort({ createdAt: "desc" })
